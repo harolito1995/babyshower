@@ -1,0 +1,48 @@
+@import "./tokens/index.css";
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background: var(--gradient-sky);
+
+  color: var(--color-text);
+
+  font-family: var(--font-body);
+
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture {
+  display: block;
+
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
