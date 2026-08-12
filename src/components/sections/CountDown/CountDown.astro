@@ -1,0 +1,109 @@
+---
+import styles from "./CountDown.module.css";
+
+import Badge from "../../ui/Badge/Badge.astro";
+import GlassCard from "../../ui/GlassCard/GlassCard.astro";
+---
+
+<section class={styles.section} id="countdown">
+
+    <div class={styles.container}>
+        <Badge
+            text="La espera"
+        />
+
+        <h2 class={styles.title}>
+
+            Cada día nos acerca
+            un poco más
+
+        </h2>
+
+        <p class={styles.subtitle}>
+
+            La ilusión crece con cada amanecer.
+            Muy pronto podremos conocer a la pequeña
+            protagonista de esta historia.
+
+        </p>
+
+        <div class={styles.grid}>
+
+            <GlassCard class={styles.card} data-card>
+
+                <span id="days" class={styles.number}>0</span>
+
+                <span class={styles.label}>Días</span>
+
+            </GlassCard>
+
+            <GlassCard class={styles.card} data-card>
+
+                <span id="hours" class={styles.number}>0</span>
+
+                <span class={styles.label}>Horas</span>
+
+            </GlassCard>
+
+            <GlassCard class={styles.card} data-card>
+
+                <span id="minutes" class={styles.number}>0</span>
+
+                <span class={styles.label}>Minutos</span>
+
+            </GlassCard>
+
+            <GlassCard class={styles.card} data-card>
+
+                <span id="seconds" class={styles.number}>0</span>
+
+                <span class={styles.label}>Segundos</span>
+
+            </GlassCard>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+    const target = new Date("2026-09-27T16:00:00-05:00");
+    
+    function updateCountdown(){
+    
+        const now = new Date();
+    
+        const diff = target.getTime() - now.getTime();
+    
+        if(diff <= 0) return;
+    
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+        const daysElement = document.getElementById("days");
+        const hoursElement = document.getElementById("hours");
+        const minutesElement = document.getElementById("minutes");
+        const secondsElement = document.getElementById("seconds");
+    
+        if(daysElement) daysElement.textContent = String(days);
+    
+        if(hoursElement) hoursElement.textContent = String(hours).padStart(2,"0");
+    
+        if(minutesElement) minutesElement.textContent = String(minutes).padStart(2,"0");
+    
+        if(secondsElement) secondsElement.textContent = String(seconds).padStart(2,"0");
+    
+    }
+    
+    updateCountdown();
+    
+    setInterval(updateCountdown,1000);
+    
+    </script>

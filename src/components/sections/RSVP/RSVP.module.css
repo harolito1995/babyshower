@@ -1,0 +1,33 @@
+.section{
+
+    position:relative;
+
+    padding-block:10rem;
+
+    padding-inline:1.5rem;
+
+}
+
+.container{
+
+    width:min(100%,720px);
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.description{
+
+    max-width:540px;
+
+    margin:2rem auto 3.5rem;
+
+    color:#F5F2FF;
+
+    line-height:2;
+
+    font-size:1.05rem;
+
+}

@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 256 256"
+fill="none">
+
+<defs>
+
+<linearGradient id="paper"
+x1="0"
+y1="0"
+x2="0"
+y2="1">
+
+<stop offset="0%" stop-color="#FFFDF8"/>
+<stop offset="100%" stop-color="#FFF4EC"/>
+
+</linearGradient>
+
+<linearGradient id="front"
+x1="0"
+y1="0"
+x2="1"
+y2="1">
+
+<stop offset="0%" stop-color="#FFE5EF"/>
+<stop offset="100%" stop-color="#F7C5DB"/>
+
+</linearGradient>
+
+<linearGradient id="seal"
+x1="0"
+y1="0"
+x2="1"
+y2="1">
+
+<stop offset="0%" stop-color="#FFE7A8"/>
+<stop offset="100%" stop-color="#F4C56A"/>
+
+</linearGradient>
+
+<filter id="shadow">
+
+<feDropShadow
+dx="0"
+dy="8"
+stdDeviation="10"
+flood-opacity=".18"/>
+
+</filter>
+
+</defs>
+
+<g filter="url(#shadow)">
+
+<rect
+
+x="44"
+
+y="62"
+
+width="168"
+
+height="120"
+
+rx="18"
+
+fill="url(#paper)"/>
+
+<path
+
+d="M44 62
+L128 132
+L212 62
+V182
+H44
+Z"
+
+fill="url(#front)"/>
+
+<path
+
+d="M44 62
+L128 138
+L212 62"
+
+stroke="#F4D4E2"
+
+stroke-width="4"
+
+stroke-linecap="round"
+
+stroke-linejoin="round"/>
+
+<path
+
+d="M44 62
+L128 120
+L212 62"
+
+fill="#FFF7F2"/>
+
+<circle
+
+cx="128"
+
+cy="112"
+
+r="18"
+
+fill="url(#seal)"/>
+
+<path
+
+d="M128 101
+L131 108
+L139 109
+L133 114
+L135 122
+L128 118
+L121 122
+L123 114
+L117 109
+L125 108
+Z"
+
+fill="#FFFDF8"/>
+
+</g>
+
+</svg>

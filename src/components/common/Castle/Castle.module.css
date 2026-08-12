@@ -1,0 +1,111 @@
+.wrapper{
+
+    position:absolute;
+
+    left:70px;
+
+    bottom:-15px;
+
+    width:520px;
+
+    z-index:3;
+
+    pointer-events:none;
+
+}
+
+.castle{
+
+    display:block;
+
+    width:620px;
+
+    opacity:.38;
+
+    filter:
+
+        drop-shadow(0 18px 45px rgba(255,222,170,.18));
+
+    transform-origin:center bottom;
+
+    will-change:transform;
+
+    animation:castleFloat 16s ease-in-out infinite;
+
+}
+
+@keyframes castleFloat{
+
+    0%{
+
+        transform:translateY(0) scale(.98);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px) scale(1);
+
+    }
+
+    100%{
+
+        transform:translateY(0) scale(.98);
+
+    }
+
+}
+
+@media(max-width:1200px){
+
+    .wrapper{
+
+        width:470px;
+
+        left:40px;
+
+    }
+
+}
+
+@media(max-width:1024px){
+
+    .wrapper{
+
+        width:400px;
+
+        left:10px;
+
+        bottom:-10px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .wrapper{
+
+        width:300px;
+
+        left:-25px;
+
+        bottom:-5px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .wrapper{
+
+        width:240px;
+
+        left:-45px;
+
+        bottom:0;
+
+    }
+
+}

@@ -1,0 +1,177 @@
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+    isolation:isolate;
+    perspective:1800px;
+  }
+  
+  .sky {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at 50% -5%,
+            rgb(255 245 250 / 95%) 0%,
+            rgb(255 225 242 / 70%) 10%,
+            rgb(255 210 236 / 25%) 20%,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            ellipse at 50% 30%,
+            rgb(227 212 255 / 25%) 0%,
+            transparent 48%
+        ),
+
+        linear-gradient(
+            180deg,
+            #fff2f8 0%,
+            #ffe3f3 10%,
+            #f8d5f0 20%,
+            #dccdff 40%,
+            #a8a8ec 62%,
+            #6576c5 82%,
+            #48579d 100%
+        );
+}
+
+.aurora {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgb(255 255 255 / 18%) 0%,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 12%,
+            rgb(255 213 240 / 25%) 0%,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgb(255 240 248 / 20%) 0%,
+            transparent 45%
+        );
+
+    filter: blur(70px);
+
+    will-change: transform, opacity;
+
+    animation: auroraFloat 18s ease-in-out infinite alternate;
+}
+  
+.glow {
+    position: absolute;
+  
+    width: 900px;
+    height: 900px;
+  
+    left: 50%;
+    top: -500px;
+  
+    transform: translateX(-50%);
+  
+    border-radius: 50%;
+  
+    background: radial-gradient(
+      circle,
+      rgba(255,255,255,.18),
+      transparent 70%
+    );
+  
+    filter: blur(80px);
+  }
+  
+  @keyframes auroraFloat {
+
+0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: .8;
+}
+
+.layer{
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+will-change:transform;
+
+contain:layout style paint;
+
+}
+
+50% {
+    transform: translate3d(0, -18px, 0) scale(1.025);
+    opacity: 1;
+}
+
+100% {
+    transform: translate3d(0, -30px, 0) scale(1.05);
+    opacity: .85;
+}
+
+}
+
+.vignette {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 55%,
+            rgb(0 0 0 / 0.12) 100%
+        );
+
+    pointer-events: none;
+}
+
+@media (max-width:768px){
+
+.moon{
+
+    transform:scale(.75);
+
+    right:-20px;
+
+    top:40px;
+
+}
+
+.castle{
+
+    transform:scale(.75);
+
+    left:-10px;
+
+}
+
+.cloudLeft{
+
+    transform:scale(.8);
+
+    left:-120px;
+
+}
+
+.cloudRight{
+
+    transform:scale(.8);
+
+    right:-100px;
+
+}
+
+}

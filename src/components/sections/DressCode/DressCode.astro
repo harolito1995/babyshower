@@ -1,0 +1,46 @@
+---
+import styles from "./DressCode.module.css";
+
+import Badge from "../../ui/Badge/Badge.astro";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+---
+
+<section class={styles.section} id="dress">
+
+    <div class={styles.container}>
+
+        <Badge
+            text="El reino se llena de color"
+        />
+
+        <SectionTitle>
+
+            Ayúdanos a crear
+            un día lleno de armonía
+
+        </SectionTitle>
+
+        <p class={styles.description} data-description>
+
+            Nos encantará que nos acompañes vistiendo
+            colores claros y tonos pastel.
+            Entre todos crearemos un ambiente cálido,
+            delicado y lleno de magia.
+
+        </p>
+
+        <div class={styles.palette}>
+
+            <div class={`${styles.color} ${styles.pink}`} data-color></div>
+
+            <div class={`${styles.color} ${styles.cream}`} data-color></div>
+
+            <div class={`${styles.color} ${styles.lilac}`} data-color></div>
+
+            <div class={`${styles.color} ${styles.sky}`} data-color></div>
+
+        </div>
+
+    </div>
+
+</section>

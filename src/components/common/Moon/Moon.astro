@@ -1,0 +1,17 @@
+---
+import styles from "./Moon.module.css";
+import MoonSvg from "../../../assets/svg/scene/moon.svg";
+---
+
+<div class={styles.wrapper} aria-hidden="true">
+
+    <div class={styles.glow}></div>
+
+    <img
+        src={MoonSvg.src}
+        alt=""
+        class={styles.moon}
+        draggable="false"
+    />
+
+</div>

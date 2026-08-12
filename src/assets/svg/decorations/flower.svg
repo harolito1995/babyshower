@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 256 256"
+fill="none">
+
+<defs>
+
+<radialGradient id="center"
+cx="50%"
+cy="50%"
+r="50%">
+
+<stop offset="0%" stop-color="#FFFBE6"/>
+
+<stop offset="100%" stop-color="#FFD56E"/>
+
+</radialGradient>
+
+<linearGradient id="petal"
+x1="0"
+y1="0"
+x2="1"
+y2="1">
+
+<stop offset="0%" stop-color="#FFF1F7"/>
+
+<stop offset="55%" stop-color="#FFDCEB"/>
+
+<stop offset="100%" stop-color="#F7BFD7"/>
+
+</linearGradient>
+
+<linearGradient id="leaf"
+x1="0"
+y1="0"
+x2="1"
+y2="1">
+
+<stop offset="0%" stop-color="#BEEFC7"/>
+
+<stop offset="100%" stop-color="#7CCF9B"/>
+
+</linearGradient>
+
+<filter id="shadow">
+
+<feDropShadow
+dx="0"
+dy="5"
+stdDeviation="7"
+flood-opacity=".16"/>
+
+</filter>
+
+</defs>
+
+<g filter="url(#shadow)">
+
+<!-- Hojas -->
+
+<ellipse
+cx="90"
+cy="188"
+rx="20"
+ry="10"
+transform="rotate(-28 90 188)"
+fill="url(#leaf)"/>
+
+<ellipse
+cx="166"
+cy="188"
+rx="20"
+ry="10"
+transform="rotate(28 166 188)"
+fill="url(#leaf)"/>
+
+<!-- Tallo -->
+
+<rect
+x="124"
+y="132"
+width="8"
+height="64"
+rx="4"
+fill="#8AD3A5"/>
+
+<!-- Pétalos -->
+
+<ellipse
+cx="128"
+cy="66"
+rx="28"
+ry="42"
+fill="url(#petal)"/>
+
+<ellipse
+cx="178"
+cy="104"
+rx="28"
+ry="42"
+transform="rotate(72 178 104)"
+fill="url(#petal)"/>
+
+<ellipse
+cx="158"
+cy="166"
+rx="28"
+ry="42"
+transform="rotate(144 158 166)"
+fill="url(#petal)"/>
+
+<ellipse
+cx="98"
+cy="166"
+rx="28"
+ry="42"
+transform="rotate(-144 98 166)"
+fill="url(#petal)"/>
+
+<ellipse
+cx="78"
+cy="104"
+rx="28"
+ry="42"
+transform="rotate(-72 78 104)"
+fill="url(#petal)"/>
+
+<!-- Centro -->
+
+<circle
+
+cx="128"
+
+cy="118"
+
+r="22"
+
+fill="url(#center)"/>
+
+<circle
+
+cx="128"
+
+cy="118"
+
+r="10"
+
+fill="#FFFDF8"/>
+
+</g>
+
+</svg>

@@ -1,0 +1,95 @@
+.wrapper {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 4;
+}
+
+.cloud {
+    position: absolute;
+
+    opacity: .82;
+
+    filter:
+        blur(1.2px)
+        drop-shadow(0 0 25px rgba(255,255,255,.18));
+
+    will-change: transform;
+}
+
+
+/* ============================= */
+/* Nube izquierda */
+/* ============================= */
+
+.left {
+    left: -80px;
+
+    bottom: -10px;
+
+    width: 430px;
+
+    animation: cloudLeftFloat 18s ease-in-out infinite;
+}
+
+
+/* ============================= */
+/* Nube derecha */
+/* ============================= */
+
+.right {
+    right: -120px;
+
+    bottom: 35px;
+
+    width: 340px;
+
+    animation: cloudRightFloat 24s ease-in-out infinite;
+}
+
+
+/* ============================= */
+/* Animación nube izquierda */
+/* ============================= */
+
+@keyframes cloudLeftFloat {
+
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(45px, -12px, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+}
+
+
+/* ============================= */
+/* Animación nube derecha */
+/* ============================= */
+
+@keyframes cloudRightFloat {
+
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(-55px, -8px, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+}

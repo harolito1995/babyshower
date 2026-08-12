@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 900 700"
+fill="none">
+
+<defs>
+
+<linearGradient id="wall"
+x1="0"
+y1="0"
+x2="0"
+y2="1">
+
+<stop offset="0%" stop-color="#FFF9F2"/>
+
+<stop offset="100%" stop-color="#F2E4D5"/>
+
+</linearGradient>
+
+<linearGradient id="roof"
+x1="0"
+y1="0"
+x2="0"
+y2="1">
+
+<stop offset="0%" stop-color="#A89AF2"/>
+
+<stop offset="100%" stop-color="#6F6EDB"/>
+
+</linearGradient>
+
+<linearGradient id="gold"
+x1="0"
+y1="0"
+x2="0"
+y2="1">
+
+<stop offset="0%" stop-color="#FFF4C5"/>
+
+<stop offset="100%" stop-color="#F4C56B"/>
+
+</linearGradient>
+
+<filter id="shadow">
+
+<feDropShadow
+dx="0"
+dy="10"
+stdDeviation="12"
+flood-opacity=".18"/>
+
+</filter>
+
+</defs>
+
+<g filter="url(#shadow)">
+
+<g id="base">
+
+<rect
+x="240"
+y="250"
+width="420"
+height="300"
+rx="18"
+fill="url(#wall)"/>
+
+</g>
+
+<g id="leftTower">
+
+<rect
+x="150"
+y="170"
+width="100"
+height="380"
+rx="16"
+fill="url(#wall)"/>
+
+<path
+d="M150 170 L200 80 L250 170 Z"
+fill="url(#roof)"/>
+
+</g>
+
+<g id="centerTower">
+
+<rect
+x="365"
+y="100"
+width="170"
+height="450"
+rx="18"
+fill="url(#wall)"/>
+
+<path
+d="M365 100 L450 0 L535 100 Z"
+fill="url(#roof)"/>
+
+</g>
+
+<g id="rightTower">
+
+<rect
+x="650"
+y="170"
+width="100"
+height="380"
+rx="16"
+fill="url(#wall)"/>
+
+<path
+d="M650 170 L700 80 L750 170 Z"
+fill="url(#roof)"/>
+
+</g>
+
+<g id="flags">
+
+<path
+d="M450 0 V-45"
+
+stroke="#F4C56B"
+
+stroke-width="6"/>
+
+<path
+d="M456 -45
+L500 -28
+L456 -12
+Z"
+
+fill="#FFD9E8"/>
+
+</g>
+
+<g id="windows">
+
+<rect
+x="430"
+y="170"
+width="40"
+height="62"
+rx="20"
+fill="#FFF6C6"/>
+
+<rect
+x="190"
+y="260"
+width="28"
+height="48"
+rx="14"
+fill="#FFF6C6"/>
+
+<rect
+x="682"
+y="260"
+width="28"
+height="48"
+rx="14"
+fill="#FFF6C6"/>
+
+</g>
+
+<g id="door">
+
+<path
+d="
+M395 550
+Q450 455
+505 550
+V550
+H395
+Z"
+
+fill="url(#gold)"/>
+
+</g>
+
+</g>
+
+</svg>

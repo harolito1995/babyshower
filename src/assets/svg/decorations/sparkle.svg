@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 128 128"
+fill="none">
+
+<defs>
+
+<linearGradient id="spark"
+
+x1="0"
+
+y1="0"
+
+x2="0"
+
+y2="1">
+
+<stop offset="0%" stop-color="#FFFDF8"/>
+
+<stop offset="35%" stop-color="#FFF1BE"/>
+
+<stop offset="100%" stop-color="#FFD97B"/>
+
+</linearGradient>
+
+<radialGradient id="glow">
+
+<stop offset="0%" stop-color="#FFFCEB"/>
+
+<stop offset="100%" stop-color="#FFFCEB" stop-opacity="0"/>
+
+</radialGradient>
+
+<filter id="shadow">
+
+<feDropShadow
+dx="0"
+dy="0"
+stdDeviation="4"
+flood-color="#FFE9A4"
+flood-opacity=".55"/>
+
+</filter>
+
+</defs>
+
+<circle
+
+cx="64"
+
+cy="64"
+
+r="28"
+
+fill="url(#glow)"/>
+
+<g filter="url(#shadow)">
+
+<path
+
+d="M64 14
+L69 54
+L114 64
+L69 74
+L64 114
+L59 74
+L14 64
+L59 54
+Z"
+
+fill="url(#spark)"/>
+
+<circle
+
+cx="64"
+
+cy="64"
+
+r="8"
+
+fill="#FFFDF9"/>
+
+</g>
+
+</svg>

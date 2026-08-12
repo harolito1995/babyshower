@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="900"
+    height="450"
+    viewBox="0 0 900 450">
+
+    <defs>
+
+        <linearGradient id="castleBody" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5B5FA8"/>
+            <stop offset="100%" stop-color="#313B78"/>
+        </linearGradient>
+
+        <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8D79D6"/>
+            <stop offset="100%" stop-color="#6651B2"/>
+        </linearGradient>
+
+        <filter id="castleGlow">
+            <feGaussianBlur stdDeviation="12"/>
+        </filter>
+
+    </defs>
+
+    <!-- Glow -->
+    <ellipse
+        cx="450"
+        cy="390"
+        rx="260"
+        ry="35"
+        fill="#F9D98C"
+        opacity=".18"
+        filter="url(#castleGlow)"
+    />
+
+    <!-- Main building -->
+    <rect
+        x="300"
+        y="170"
+        width="300"
+        height="190"
+        rx="8"
+        fill="url(#castleBody)"
+    />
+
+    <!-- Left tower -->
+    <rect
+        x="210"
+        y="120"
+        width="70"
+        height="240"
+        fill="url(#castleBody)"
+    />
+
+    <!-- Right tower -->
+    <rect
+        x="620"
+        y="120"
+        width="70"
+        height="240"
+        fill="url(#castleBody)"
+    />
+
+    <!-- Center tower -->
+    <rect
+        x="405"
+        y="70"
+        width="90"
+        height="290"
+        fill="url(#castleBody)"
+    />
+
+    <!-- Roofs -->
+    <polygon
+        points="190,120 245,40 300,120"
+        fill="url(#roof)"
+    />
+
+    <polygon
+        points="385,70 450,0 515,70"
+        fill="url(#roof)"
+    />
+
+    <polygon
+        points="600,120 655,40 710,120"
+        fill="url(#roof)"
+    />
+
+    <!-- Flags -->
+    <line x1="245" y1="40" x2="245" y2="5"
+        stroke="#F4D67C"
+        stroke-width="4"/>
+
+    <polygon
+        points="245,5 275,15 245,25"
+        fill="#F8A7CF"/>
+
+    <line x1="450" y1="0" x2="450" y2="-35"
+        stroke="#F4D67C"
+        stroke-width="4"/>
+
+    <polygon
+        points="450,-35 485,-22 450,-10"
+        fill="#F8A7CF"/>
+
+    <line x1="655" y1="40" x2="655" y2="5"
+        stroke="#F4D67C"
+        stroke-width="4"/>
+
+    <polygon
+        points="655,5 685,15 655,25"
+        fill="#F8A7CF"/>
+
+    <!-- Door -->
+    <path
+        d="M425 360
+           Q425 310 450 310
+           Q475 310 475 360
+           Z"
+        fill="#2B2956"
+    />
+
+    <!-- Windows -->
+    <g fill="#FFE9A8">
+
+        <rect x="335" y="205" width="14" height="24" rx="3"/>
+        <rect x="365" y="205" width="14" height="24" rx="3"/>
+        <rect x="520" y="205" width="14" height="24" rx="3"/>
+        <rect x="550" y="205" width="14" height="24" rx="3"/>
+
+        <rect x="230" y="160" width="12" height="22" rx="3"/>
+        <rect x="658" y="160" width="12" height="22" rx="3"/>
+
+        <rect x="442" y="120" width="16" height="26" rx="4"/>
+
+    </g>
+
+</svg>

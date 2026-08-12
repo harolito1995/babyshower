@@ -1,0 +1,78 @@
+---
+import styles from "./Event.module.css";
+
+import Badge from "../../ui/Badge/Badge.astro";
+import GlassCard from "../../ui/GlassCard/GlassCard.astro";
+import PrimaryButton from "../../ui/PrimaryButton/PrimaryButton.astro";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+
+import { eventData } from "./event";
+---
+
+<section class={styles.section} id="event">
+
+    <div class={styles.container}>
+        <Badge
+            text="El gran encuentro"
+        />
+
+        <SectionTitle>
+
+            El lugar donde
+            comenzará esta historia
+        
+        </SectionTitle>
+
+        <p class={styles.intro} data-intro>
+
+            Toda historia inolvidable merece un lugar especial.
+            Nos encantará compartir contigo el comienzo de este nuevo capítulo.
+
+        </p>
+
+        <GlassCard class={styles.card} data-card>
+
+            <div class={styles.row}>
+
+                <span class={styles.label}>Fecha</span>
+
+                <strong>{eventData.date}</strong>
+
+            </div>
+
+            <div class={styles.row}>
+
+                <span class={styles.label}>Hora</span>
+
+                <strong>{eventData.hour}</strong>
+
+            </div>
+
+            <div class={styles.row}>
+
+                <span class={styles.label}>Lugar</span>
+
+                <strong>{eventData.place}</strong>
+
+            </div>
+
+            <p class={styles.address}>
+
+                {eventData.address}
+
+            </p>
+
+        </GlassCard>
+
+        <PrimaryButton
+            href={eventData.maps}
+            target="_blank"
+        >
+
+            Abrir ubicación
+
+        </PrimaryButton>
+
+    </div>
+
+</section>

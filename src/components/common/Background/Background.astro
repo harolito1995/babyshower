@@ -1,0 +1,80 @@
+---
+import styles from "./Background.module.css";
+
+import Moon from "../Moon/Moon.astro";
+import Castle from "../Castle/Castle.astro";
+import Clouds from "../Clouds/Clouds.astro";
+import MagicDust from "../MagicDust/MagicDust.astro";
+import StarField from "../StarField/StarField.astro";
+import ShootingStars from "../ShootingStars/ShootingStars.astro";
+---
+
+<div class={styles.background} aria-hidden="true">
+
+    <div
+        class={styles.layer}
+        data-depth="0.02">
+
+        <div class={styles.sky}></div>
+
+    </div>
+
+    <div
+        class={styles.layer}
+        data-depth="0.06">
+
+        <div class={styles.aurora}></div>
+
+    </div>
+
+    <div
+        class={styles.layer}
+        data-depth="0.12">
+
+        <StarField />
+
+    </div>
+
+    <div
+        class={styles.layer}
+        data-depth="0.18">
+
+        <MagicDust />
+
+    </div>
+
+    <div
+        class={styles.layer}
+        data-depth="0.14">
+
+        <ShootingStars />
+
+    </div>
+
+    <div
+        class={styles.layer}
+        data-depth="0.30">
+
+        <Moon />
+
+    </div>
+
+    <div
+        class={styles.layer}
+        data-depth="0.45">
+
+        <Clouds />
+
+    </div>
+
+    <div
+        class={styles.layer}
+        data-depth="0.55">
+
+        <Castle />
+
+    </div>
+
+    <div class={styles.vignette}></div>
+
+</div>

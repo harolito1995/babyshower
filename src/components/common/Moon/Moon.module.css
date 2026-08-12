@@ -1,0 +1,151 @@
+.wrapper{
+
+    position:absolute;
+
+    top:90px;
+
+    right:5%;
+
+    width:180px;
+
+    z-index:3;
+
+    pointer-events:none;
+
+}
+
+.glow{
+
+    position:absolute;
+
+    inset:-90px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+
+        circle,
+
+        rgba(255,252,235,.35) 0%,
+
+        rgba(255,232,190,.18) 35%,
+
+        rgba(255,215,180,.08) 60%,
+
+        transparent 80%
+
+    );
+
+    filter:blur(70px);
+
+    animation:glowPulse 8s ease-in-out infinite;
+
+}
+
+.moon{
+
+    display:block;
+
+    width:100%;
+
+    filter:
+
+        drop-shadow(0 0 35px rgba(255,235,190,.25));
+
+    transform-origin:center;
+
+    will-change:transform;
+
+    animation:moonFloat 12s ease-in-out infinite;
+
+}
+
+@keyframes moonFloat{
+
+    0%{
+
+        transform:translateY(0) rotate(0deg);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px) rotate(.3deg);
+
+    }
+
+    100%{
+
+        transform:translateY(0) rotate(0deg);
+
+    }
+
+}
+
+@keyframes glowPulse{
+
+    0%{
+
+        transform:scale(.96);
+
+        opacity:.45;
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+        opacity:.72;
+
+    }
+
+    100%{
+
+        transform:scale(.96);
+
+        opacity:.45;
+
+    }
+
+}
+
+@media(max-width:1024px){
+
+    .wrapper{
+
+        width:165px;
+
+        right:3%;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .wrapper{
+
+        width:135px;
+
+        top:45px;
+
+        right:-10px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .wrapper{
+
+        width:115px;
+
+        top:35px;
+
+        right:-18px;
+
+    }
+
+}

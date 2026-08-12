@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 900 120"
+fill="none">
+
+<defs>
+
+<linearGradient id="grass"
+x1="0"
+y1="0"
+x2="0"
+y2="1">
+
+<stop offset="0%" stop-color="#C7F2C6"/>
+
+<stop offset="100%" stop-color="#82CB93"/>
+
+</linearGradient>
+
+</defs>
+
+<path
+
+d="
+M0 120
+
+L20 90
+L35 120
+
+L52 80
+L70 120
+
+L95 92
+L112 120
+
+L135 78
+L154 120
+
+L182 92
+L205 120
+
+L235 84
+L260 120
+
+L295 86
+L320 120
+
+L355 82
+L385 120
+
+L420 90
+L455 120
+
+L495 82
+L530 120
+
+L575 90
+L610 120
+
+L655 82
+L690 120
+
+L735 92
+L770 120
+
+L815 84
+L850 120
+
+L900 120
+
+Z"
+
+fill="url(#grass)"/>
+
+</svg>

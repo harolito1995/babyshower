@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 320 180"
+fill="none">
+
+<defs>
+
+<radialGradient id="leaf1">
+<stop offset="0%" stop-color="#DFF9D8"/>
+<stop offset="100%" stop-color="#8BD19D"/>
+</radialGradient>
+
+<radialGradient id="leaf2">
+<stop offset="0%" stop-color="#CFF3E0"/>
+<stop offset="100%" stop-color="#79C694"/>
+</radialGradient>
+
+<filter id="shadow">
+<feDropShadow
+dx="0"
+dy="5"
+stdDeviation="6"
+flood-opacity=".15"/>
+</filter>
+
+</defs>
+
+<g filter="url(#shadow)">
+
+<circle cx="70" cy="105" r="48" fill="url(#leaf1)"/>
+
+<circle cx="120" cy="78" r="56" fill="url(#leaf2)"/>
+
+<circle cx="175" cy="102" r="52" fill="url(#leaf1)"/>
+
+<circle cx="235" cy="88" r="46" fill="url(#leaf2)"/>
+
+<circle cx="275" cy="110" r="36" fill="url(#leaf1)"/>
+
+</g>
+
+</svg>

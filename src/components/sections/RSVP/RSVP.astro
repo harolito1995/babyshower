@@ -1,0 +1,45 @@
+---
+import styles from "./RSVP.module.css";
+
+import Badge from "../../ui/Badge/Badge.astro";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+import PrimaryButton from "../../ui/PrimaryButton/PrimaryButton.astro";
+
+import { rsvpData } from "./rsvp";
+---
+
+<section class={styles.section} id="rsvp">
+
+    <div class={styles.container}>
+
+        <Badge
+            text="Solo falta un paso"
+        />
+
+        <SectionTitle>
+
+            ¿Nos acompañarás
+            en este día tan especial?
+
+        </SectionTitle>
+
+        <p class={styles.description} data-description>
+
+            Nos llenaría de alegría contar contigo en el comienzo
+            de esta hermosa historia. Tu compañía hará que este día
+            sea aún más inolvidable.
+
+        </p>
+
+        <PrimaryButton
+            href={`https://wa.me/${rsvpData.phone}`}
+            target="_blank"
+        >
+
+            Confirmar asistencia
+
+        </PrimaryButton>
+
+    </div>
+
+</section>

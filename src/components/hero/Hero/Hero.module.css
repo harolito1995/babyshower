@@ -1,0 +1,363 @@
+.hero{
+
+    position:relative;
+
+    min-height:100svh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:2rem 1.5rem;
+
+    z-index:5;
+
+}
+
+.content{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:28px;
+
+    max-width:760px;
+
+    padding:3rem 2.5rem;
+
+    z-index:2;
+
+}
+
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:.6rem;
+
+    padding:.9rem 1.5rem;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    color:#FFE59B;
+
+    font-size:.82rem;
+
+    font-weight:600;
+
+    letter-spacing:.22rem;
+
+    text-transform:uppercase;
+
+}
+
+.title{
+
+font-family:var(--font-heading);
+
+font-size: clamp(3.8rem, 10vw, 6rem);
+
+color:white;
+
+font-weight:700;
+
+line-height:1.05;
+
+text-align:center;
+
+max-width:10ch;
+
+margin-inline:auto;
+
+text-wrap:balance;
+
+text-shadow:
+    0 0 8px rgba(255,255,255,.08),
+    0 0 20px rgba(255,255,255,.10),
+    0 4px 18px rgba(0,0,0,.18);
+
+}
+
+.subtitle{
+
+max-width:520px;
+
+font-size:1.12rem;
+
+line-height:2;
+
+color:white;
+
+opacity:.9;
+
+}
+
+.date{
+
+font-size:.9rem;
+
+letter-spacing:.35rem;
+
+text-transform:uppercase;
+
+color:#F8E4AA;
+text-shadow:
+    0 2px 8px rgba(0,0,0,.20);
+
+}
+
+.scrollIndicator{
+
+    margin-top:3.8rem;
+
+    width:34px;
+
+    height:58px;
+
+    border:2px solid rgba(255,255,255,.58);
+
+    border-radius:999px;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding-top:8px;
+
+    cursor:pointer;
+
+    transition:
+
+        transform .35s,
+
+        border-color .35s,
+
+        box-shadow .35s;
+
+}
+
+.scrollIndicator:hover{
+
+    transform:translateY(6px);
+
+    border-color:white;
+
+    box-shadow:
+
+        0 0 20px rgba(255,255,255,.15);
+
+}
+
+.scrollIndicator span{
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:white;
+
+    animation:scrollBounce 1.7s infinite;
+
+}
+
+[data-reveal]{
+
+    opacity:0;
+
+    transform:translateY(24px);
+
+    animation:heroReveal .9s forwards;
+
+    animation-timing-function:cubic-bezier(.22,.61,.36,1);
+
+}
+
+[data-reveal="1"]{
+
+    animation-delay:.15s;
+
+}
+
+[data-reveal="2"]{
+
+    animation-delay:.45s;
+
+}
+
+[data-reveal="3"]{
+
+    animation-delay:.8s;
+
+}
+
+[data-reveal="4"]{
+
+    animation-delay:1.15s;
+
+}
+
+@keyframes heroReveal{
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes scrollBounce{
+
+    0%{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(20px);
+
+        opacity:.1;
+
+    }
+
+}
+
+@media (max-width:1024px){
+
+    .hero{
+    
+        padding-inline:2rem;
+    
+    }
+    
+    .content{
+    
+        max-width:640px;
+    
+        gap:2rem;
+    
+    }
+    
+    .title{
+    
+        font-size:clamp(3.6rem,9vw,5rem);
+    
+    }
+    
+    .subtitle{
+    
+        max-width:480px;
+    
+        font-size:1.05rem;
+    
+    }
+    
+}
+
+@media (max-width:768px){
+
+    .hero{
+    
+        min-height:100svh;
+    
+        padding:2rem 1.5rem;
+    
+    }
+    
+    .content{
+    
+        gap:1.75rem;
+    
+        max-width:100%;
+    
+    }
+    
+    .title{
+    
+        font-size:clamp(2.8rem,13vw,4rem);
+    
+        line-height:1.05;
+    
+    }
+    
+    .subtitle{
+    
+        max-width:100%;
+    
+        font-size:1rem;
+    
+        line-height:1.9;
+    
+    }
+    
+    .date{
+    
+        font-size:.82rem;
+    
+        letter-spacing:.22rem;
+    
+    }
+    
+    .scrollIndicator{
+    
+        margin-top:2rem;
+    
+    }
+    
+}
+
+@media (max-width:420px){
+
+    .hero{
+    
+        padding-inline:1.25rem;
+    
+    }
+    
+    .title{
+    
+        font-size:2.6rem;
+    
+    }
+    
+    .subtitle{
+    
+        font-size:.95rem;
+    
+    }
+    
+    .date{
+    
+        letter-spacing:.15rem;
+    
+    }
+    
+}

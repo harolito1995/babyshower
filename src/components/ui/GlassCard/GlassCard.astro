@@ -1,0 +1,23 @@
+---
+import styles from "./GlassCard.module.css";
+
+interface Props{
+
+    class?:string;
+    [key: string]: any;
+
+}
+
+const{
+
+    class:className="",
+    ...rest
+
+}=Astro.props;
+---
+
+<div class={`${styles.card} ${className}`} {...rest}>
+
+    <slot />
+
+</div>

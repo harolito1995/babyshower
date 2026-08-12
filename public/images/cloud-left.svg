@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="900"
+    height="420"
+    viewBox="0 0 900 420">
+
+    <defs>
+
+        <linearGradient id="cloudFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FFF9FF"/>
+            <stop offset="100%" stop-color="#F2EAFD"/>
+        </linearGradient>
+
+        <filter id="blur">
+            <feGaussianBlur stdDeviation="8"/>
+        </filter>
+
+    </defs>
+
+    <g opacity=".95">
+
+        <ellipse cx="150" cy="260" rx="120" ry="70" fill="url(#cloudFill)"/>
+        <ellipse cx="260" cy="220" rx="110" ry="80" fill="url(#cloudFill)"/>
+        <ellipse cx="380" cy="250" rx="140" ry="85" fill="url(#cloudFill)"/>
+        <ellipse cx="520" cy="235" rx="125" ry="75" fill="url(#cloudFill)"/>
+        <ellipse cx="650" cy="260" rx="120" ry="70" fill="url(#cloudFill)"/>
+
+        <ellipse
+            cx="400"
+            cy="315"
+            rx="320"
+            ry="55"
+            fill="#F4ECFF"
+            opacity=".75"
+        />
+
+    </g>
+
+</svg>

@@ -1,0 +1,40 @@
+---
+import styles from "./Princess.module.css";
+import { site } from "../../../data/site";
+
+import Badge from "../../ui/Badge/Badge.astro";
+---
+
+<section class={styles.section} id="princess">
+
+    <div class={styles.container}>
+
+        <Badge
+            text="El secreto ha sido revelado"
+        />
+
+        <p class={styles.intro} data-intro>
+
+            Después de mucha ilusión, sueños y amor,
+            llegó el momento de presentarte a la protagonista
+            de esta historia.
+
+        </p>
+
+        <h2 class={styles.name} data-name>
+
+            {site.baby.name}
+
+        </h2>
+
+        <p class={styles.outro} data-outro>
+
+            Muy pronto llegará para llenar nuestros días
+            de sonrisas, abrazos y momentos que guardaremos
+            para siempre en el corazón.
+
+        </p>
+
+    </div>
+
+</section>

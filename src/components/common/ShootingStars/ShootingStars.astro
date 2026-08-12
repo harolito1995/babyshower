@@ -1,0 +1,65 @@
+---
+import styles from "./ShootingStars.module.css";
+
+const stars = [
+    {
+        top: 4,
+        left: -18,
+        width: 170,
+        duration: 24,
+        delay: 0,
+        angle: -32
+    },
+    {
+        top: 12,
+        left: -28,
+        width: 220,
+        duration: 31,
+        delay: 9,
+        angle: -37
+    },
+    {
+        top: 22,
+        left: -12,
+        width: 140,
+        duration: 27,
+        delay: 18,
+        angle: -28
+    },
+    {
+        top: 8,
+        left: -40,
+        width: 260,
+        duration: 38,
+        delay: 27,
+        angle: -42
+    }
+];
+---
+
+<div class={styles.container} aria-hidden="true">
+
+    {
+        stars.map((star)=>(
+
+            <span
+
+                class={styles.star}
+
+                style={`
+                    top:${star.top}%;
+                    left:${star.left}%;
+
+                    width:${star.width}px;
+
+                    --duration:${star.duration}s;
+                    --delay:${star.delay}s;
+                    --angle:${star.angle}deg;
+                `}
+
+            />
+
+        ))
+    }
+
+</div>

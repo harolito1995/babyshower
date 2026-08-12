@@ -1,0 +1,113 @@
+.section{
+
+    position:relative;
+
+    padding:10rem 1.5rem;
+
+}
+
+.container{
+
+    width:min(100%,720px);
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.envelopeWrapper{
+
+    margin-top:5rem;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.envelope{
+
+    position:relative;
+
+    width:320px;
+
+    height:220px;
+
+    cursor:pointer;
+
+    perspective:1000px;
+
+}
+
+.flap{
+
+    position:absolute;
+
+    inset:0;
+
+    clip-path:polygon(0 0,100% 0,50% 55%);
+
+    background:#f8d7e5;
+
+    transform-origin:top;
+
+    transition:transform .8s ease;
+
+    z-index:3;
+
+}
+
+.letter{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:0;
+
+    transform:translateX(-50%);
+
+    width:88%;
+
+    padding:2rem;
+
+    border-radius:20px;
+
+    background:white;
+
+    color:#555;
+
+    transition:
+
+        transform .8s ease,
+
+        opacity .6s ease;
+
+    transform:translate(-50%,60px);
+
+    opacity:0;
+
+}
+
+.envelope.open .flap{
+
+    transform:rotateX(180deg);
+
+}
+
+.envelope.open .letter{
+
+    transform:translate(-50%,-60px);
+
+    opacity:1;
+
+}
+
+.letter p{
+
+    line-height:1.8;
+
+    margin-bottom:2rem;
+
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="900"
+    height="420"
+    viewBox="0 0 900 420">
+
+    <defs>
+
+        <linearGradient id="cloudFillRight" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FFF9FF"/>
+            <stop offset="100%" stop-color="#EFE6FB"/>
+        </linearGradient>
+
+    </defs>
+
+    <g opacity=".94">
+
+        <ellipse
+            cx="730"
+            cy="250"
+            rx="120"
+            ry="72"
+            fill="url(#cloudFillRight)"
+        />
+
+        <ellipse
+            cx="620"
+            cy="210"
+            rx="110"
+            ry="82"
+            fill="url(#cloudFillRight)"
+        />
+
+        <ellipse
+            cx="500"
+            cy="245"
+            rx="145"
+            ry="88"
+            fill="url(#cloudFillRight)"
+        />
+
+        <ellipse
+            cx="360"
+            cy="225"
+            rx="120"
+            ry="78"
+            fill="url(#cloudFillRight)"
+        />
+
+        <ellipse
+            cx="210"
+            cy="255"
+            rx="105"
+            ry="68"
+            fill="url(#cloudFillRight)"
+        />
+
+        <ellipse
+            cx="470"
+            cy="318"
+            rx="320"
+            ry="58"
+            fill="#F4ECFF"
+            opacity=".72"
+        />
+
+    </g>
+
+</svg>

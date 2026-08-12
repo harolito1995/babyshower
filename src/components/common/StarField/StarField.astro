@@ -1,0 +1,113 @@
+---
+import styles from "./StarField.module.css";
+
+const mainStars = [
+  { x: 8, y: 10, s: 18, o: 0.85, d: 0, r: 12 },
+  { x: 18, y: 20, s: 12, o: 0.55, d: 2, r: -8 },
+  { x: 28, y: 8, s: 20, o: 0.9, d: 4, r: 24 },
+  { x: 42, y: 14, s: 14, o: 0.65, d: 1, r: -15 },
+  { x: 56, y: 7, s: 18, o: 0.75, d: 3, r: 8 },
+  { x: 70, y: 16, s: 22, o: 0.95, d: 5, r: -20 },
+  { x: 84, y: 12, s: 14, o: 0.7, d: 2, r: 15 },
+  { x: 92, y: 24, s: 18, o: 0.82, d: 6, r: -10 },
+
+  { x: 12, y: 38, s: 14, o: 0.7, d: 4, r: 18 },
+  { x: 24, y: 48, s: 18, o: 0.88, d: 1, r: -12 },
+  { x: 38, y: 34, s: 12, o: 0.6, d: 3, r: 30 },
+  { x: 52, y: 42, s: 20, o: 0.9, d: 5, r: -18 },
+  { x: 66, y: 36, s: 14, o: 0.72, d: 1, r: 10 },
+  { x: 80, y: 44, s: 16, o: 0.8, d: 4, r: -25 },
+  { x: 88, y: 56, s: 20, o: 0.92, d: 3, r: 14 },
+
+  { x: 14, y: 64, s: 18, o: 0.82, d: 2, r: -16 },
+  { x: 44, y: 60, s: 14, o: 0.68, d: 4, r: 22 },
+  { x: 74, y: 62, s: 20, o: 0.9, d: 6, r: -8 },
+];
+
+/*
+ * Estrellas ambientales.
+ *
+ * Utilizamos una fórmula determinista para que
+ * las posiciones sean siempre las mismas.
+ */
+const ambientStars = Array.from({ length: 45 }, (_, index) => {
+  const seed = index + 1;
+
+  const x = ((seed * 47) % 96) + 2;
+  const y = ((seed * 31) % 70) + 6;
+
+  const size = 4 + ((seed * 13) % 6);
+
+  const opacity = 0.2 + ((seed * 17) % 35) / 100;
+
+  const delay = (seed * 7) % 12;
+
+  const rotation = ((seed * 29) % 60) - 30;
+
+  const duration = 7 + ((seed * 11) % 9);
+
+  return {
+    x,
+    y,
+    size,
+    opacity,
+    delay,
+    rotation,
+    duration,
+  };
+});
+---
+
+<div class={styles.field} aria-hidden="true">
+  <!-- Estrellas principales -->
+
+  {
+    mainStars.map((star) => (
+      <img
+        src="/images/star.svg"
+        alt=""
+        class={styles.star}
+        style={`
+    left:${star.x}%;
+    top:${star.y}%;
+    width:${star.s}px;
+    opacity:${star.o};
+
+    --rotation:${star.r}deg;
+
+    --twinkle:${6 + star.d * 0.6}s;
+    --float:${12 + star.d * 2}s;
+    --offset:${3 + star.d}px;
+
+    animation-delay:${star.d}s;
+`}
+      />
+    ))
+  }
+
+  <!-- Estrellas ambientales -->
+
+  {
+    ambientStars.map((star) => (
+      <img
+        src="/images/star.svg"
+        alt=""
+        class={`${styles.star} ${styles.ambientStar}`}
+        style={`
+    left:${star.x}%;
+    top:${star.y}%;
+    width:${star.size}px;
+    opacity:${star.opacity};
+
+    --rotation:${star.rotation}deg;
+
+    --twinkle:${star.duration}s;
+    --float:${star.duration + 6}s;
+    --offset:${2 + (star.size / 2)}px;
+
+    animation-delay:${star.delay}s;
+`}
+      />
+    ))
+  }
+</div>

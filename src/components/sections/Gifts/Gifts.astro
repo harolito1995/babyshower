@@ -1,0 +1,68 @@
+---
+import styles from "./Gifts.module.css";
+
+import Badge from "../../ui/Badge/Badge.astro";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+import PrimaryButton from "../../ui/PrimaryButton/PrimaryButton.astro";
+---
+
+<section class={styles.section} id="gifts">
+
+    <div class={styles.container}>
+
+        <Badge
+            text="Una carta para ti"
+        />
+
+        <SectionTitle>
+
+            Antes de terminar...
+            queremos decirte algo
+
+        </SectionTitle>
+
+        <div class={styles.envelopeWrapper} data-envelope>
+
+            <div id="gift-envelope" class={styles.envelope}>
+
+                <div class={styles.flap}></div>
+
+                <div class={styles.letter}>
+
+                    <p>
+
+                        Tu presencia será siempre nuestro regalo más valioso.
+
+                        Si además deseas tener un detalle para Mariapaz,
+                        podrás hacerlo con mucho cariño mediante la tradicional
+                        lluvia de sobres.
+
+                    </p>
+
+                    <PrimaryButton>
+
+                        Ver información
+
+                    </PrimaryButton>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+    const envelope=document.getElementById("gift-envelope");
+    
+    envelope?.addEventListener("click",()=>{
+    
+        envelope.classList.toggle("open");
+    
+    });
+    
+    </script>

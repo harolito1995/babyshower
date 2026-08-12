@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 256 320"
+fill="none">
+
+<defs>
+
+<linearGradient id="trunk"
+x1="0"
+y1="0"
+x2="0"
+y2="1">
+
+<stop offset="0%" stop-color="#C89B6D"/>
+<stop offset="100%" stop-color="#9B6C45"/>
+
+</linearGradient>
+
+<radialGradient id="crown">
+
+<stop offset="0%" stop-color="#FFEAF6"/>
+
+<stop offset="45%" stop-color="#F7CFE6"/>
+
+<stop offset="100%" stop-color="#D9CCFF"/>
+
+</radialGradient>
+
+<filter id="shadow">
+
+<feDropShadow
+dx="0"
+dy="6"
+stdDeviation="8"
+flood-opacity=".15"/>
+
+</filter>
+
+</defs>
+
+<g filter="url(#shadow)">
+
+<rect
+
+x="112"
+
+y="150"
+
+width="32"
+
+height="120"
+
+rx="16"
+
+fill="url(#trunk)"/>
+
+<circle
+cx="128"
+cy="120"
+r="74"
+fill="url(#crown)"/>
+
+<circle
+cx="84"
+cy="108"
+r="42"
+fill="#FFE7F3"
+opacity=".85"/>
+
+<circle
+cx="170"
+cy="112"
+r="46"
+fill="#E9D9FF"
+opacity=".85"/>
+
+<circle
+cx="126"
+cy="72"
+r="40"
+fill="#FFF5FB"
+opacity=".9"/>
+
+</g>
+
+</svg>

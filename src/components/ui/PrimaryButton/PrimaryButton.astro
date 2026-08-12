@@ -1,0 +1,73 @@
+---
+import styles from "./PrimaryButton.module.css";
+
+interface Props{
+
+    href?:string;
+
+    target?:string;
+
+    type?:"button"|"submit";
+
+    class?:string;
+
+    [key: string]: any;
+
+}
+
+const{
+
+    href,
+
+    target,
+
+    type="button",
+
+    class: className = "",
+
+    ...rest
+
+}=Astro.props;
+---
+
+{
+href ? (
+
+<a
+
+    href={href}
+
+    target={target}
+
+    class={`${styles.button} ${className}`}
+
+    data-button
+
+    {...rest}
+
+>
+
+    <slot />
+
+</a>
+
+) : (
+
+<button
+
+    type={type}
+
+    class={`${styles.button} ${className}`}
+
+    data-button
+
+    {...rest}
+
+>
+
+    <slot />
+
+</button>
+
+)
+}
