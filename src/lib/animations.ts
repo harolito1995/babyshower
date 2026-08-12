@@ -4,25 +4,27 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function initAnimations() {
-
-    console.log("🚀 GSAP iniciado");
+export function initAnimations(){
 
     initHero();
 
-    initPrincess();
+    requestAnimationFrame(()=>{
 
-    initCountdown();
+        initPrincess();
 
-    initEvent();
+        initCountdown();
 
-    initDressCode();
+        initEvent();
 
-    initGifts();
+        initDressCode();
 
-    initRSVP();
+        initGifts();
 
-    initFooter();
+        initRSVP();
+
+        initFooter();
+
+    });
 
 }
 
@@ -98,7 +100,9 @@ function initPrincess(){
 
         scrollTrigger:{
             trigger:"#princess",
-            start:"top 70%"
+            start:"top 70%",
+            once:true
+
         }
 
     });
@@ -149,7 +153,9 @@ function initCountdown(){
 
         scrollTrigger:{
             trigger:"#countdown",
-            start:"top 70%"
+            start:"top 70%",
+            once:true
+
         }
 
     })
@@ -190,7 +196,9 @@ function initEvent(){
 
         scrollTrigger:{
             trigger:"#event",
-            start:"top 70%"
+            start:"top 70%",
+            once:true
+
         }
 
     })

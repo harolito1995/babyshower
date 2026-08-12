@@ -2,6 +2,7 @@
 import styles from "./Gifts.module.css";
 
 import Badge from "../../ui/Badge/Badge.astro";
+import GlassCard from "../../ui/GlassCard/GlassCard.astro";
 import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
 import PrimaryButton from "../../ui/PrimaryButton/PrimaryButton.astro";
 ---
@@ -21,31 +22,228 @@ import PrimaryButton from "../../ui/PrimaryButton/PrimaryButton.astro";
 
         </SectionTitle>
 
-        <div class={styles.envelopeWrapper} data-envelope>
+        <!-- Interactive Wrapper Container -->
+        <div class={styles.giftsWrapper} id="gifts-interactive-container">
 
-            <div id="gift-envelope" class={styles.envelope}>
+            <!-- Definitive SVG Envelope Container (Always visible centerpiece) -->
+            <div
+                class={styles.envelopeWrapper}
+                data-envelope
+                id="gifts-envelope-trigger"
+                role="button"
+                tabindex="0"
+                aria-label="Abrir sobre con la carta de Mariapaz"
+            >
 
-                <div class={styles.flap}></div>
+                <div class={styles.glowRing}></div>
 
-                <div class={styles.letter}>
+                <svg
+                    class={styles.svgEnvelope}
+                    viewBox="0 0 256 256"
+                    fill="none"
+                    aria-hidden="true"
+                >
 
-                    <p>
+                    <defs>
 
-                        Tu presencia será siempre nuestro regalo más valioso.
+                        <linearGradient
+                            id="gifts-paper-grad"
+                            x1="0"
+                            y1="0"
+                            x2="0"
+                            y2="1"
+                        >
 
-                        Si además deseas tener un detalle para Mariapaz,
-                        podrás hacerlo con mucho cariño mediante la tradicional
-                        lluvia de sobres.
+                            <stop offset="0%" stop-color="#FFFDF8"/>
+
+                            <stop offset="100%" stop-color="#FAF1E6"/>
+
+                        </linearGradient>
+
+                        <linearGradient
+                            id="gifts-front-grad"
+                            x1="0"
+                            y1="0"
+                            x2="1"
+                            y2="1"
+                        >
+
+                            <stop offset="0%" stop-color="#FCE1ED"/>
+
+                            <stop offset="100%" stop-color="#F4B8D5"/>
+
+                        </linearGradient>
+
+                        <linearGradient
+                            id="gifts-seal-grad"
+                            x1="0"
+                            y1="0"
+                            x2="1"
+                            y2="1"
+                        >
+
+                            <stop offset="0%" stop-color="#FFE7A8"/>
+
+                            <stop offset="100%" stop-color="#F2D27B"/>
+
+                        </linearGradient>
+
+                    </defs>
+
+                    <g>
+
+                        <!-- Inner wall / back of envelope -->
+                        <rect
+                            x="44"
+                            y="62"
+                            width="168"
+                            height="120"
+                            rx="16"
+                            fill="#EAD9C8"
+                        />
+
+                        <!-- Mini paper sheet inside pocket -->
+                        <rect
+                            id="gifts-svg-paper-sheet"
+                            class={styles.svgMiniPaper}
+                            x="52"
+                            y="70"
+                            width="152"
+                            height="100"
+                            rx="10"
+                            fill="url(#gifts-paper-grad)"
+                        />
+
+                        <!-- Envelope front pocket -->
+                        <path
+                            d="M44 62 L128 132 L212 62 V182 H44 Z"
+                            fill="url(#gifts-front-grad)"
+                        />
+
+                        <!-- Front fold shadow line -->
+                        <path
+                            d="M44 62 L128 138 L212 62"
+                            stroke="#E5A6C4"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                        <!-- Top flap + wax seal -->
+                        <g id="gifts-svg-flap" class={styles.svgFlap}>
+
+                            <path
+                                d="M44 62 L128 120 L212 62"
+                                fill="#FFF4F8"
+                            />
+
+                            <g id="gifts-svg-seal">
+
+                                <circle
+                                    cx="128"
+                                    cy="112"
+                                    r="18"
+                                    fill="url(#gifts-seal-grad)"
+                                />
+
+                                <path
+                                    d="M128 101 L131 108 L139 109 L133 114 L135 122 L128 118 L121 122 L123 114 L117 109 L125 108 Z"
+                                    fill="#FFFDF8"
+                                />
+
+                            </g>
+
+                        </g>
+
+                    </g>
+
+                </svg>
+
+                <div class={styles.clickHint} id="gifts-click-hint">
+
+                    <span>✨ Toca el sobre para abrir la carta ✨</span>
+
+                </div>
+
+            </div>
+
+            <!-- Physical Parchment Unfolded Letter -->
+            <div
+                class={styles.letterWrapper}
+                id="gifts-letter-wrapper"
+                aria-hidden="true"
+            >
+
+                <GlassCard class={styles.letterCard} id="gifts-letter-card">
+
+                    <div class={styles.letterBadgeWrapper}>
+
+                        <Badge text="Una carta para ti" />
+
+                    </div>
+
+                    <h3 class={styles.salutation}>
+
+                        Querida familia y queridos amigos:
+
+                    </h3>
+
+                    <div class={styles.letterBody}>
+
+                        <p>
+
+                            Si estás leyendo estas palabras, es porque ocupas un lugar muy especial en nuestras vidas. La llegada de Mariapaz es uno de los momentos más importantes que hemos vivido, y no podríamos imaginar este hermoso capítulo sin las personas que han hecho parte de nuestro camino.
+
+                        </p>
+
+                        <p>
+
+                            Lo más valioso para nosotros será compartir este día contigo. Tu presencia, tu cariño y los buenos deseos que puedas brindarle a nuestra pequeña princesa serán, sin duda, el regalo más importante que podremos recibir.
+
+                        </p>
+
+                        <p>
+
+                            Sabemos que muchas personas desean tener un detalle para Mariapaz y queremos que sepas que no existe una única forma de hacerlo. Si nace de tu corazón, podrás elegir libremente la opción con la que te sientas más cómodo.
+
+                        </p>
+
+                        <p>
+
+                            Puedes sorprender a Mariapaz con un regalo que hayas elegido especialmente para ella o, si lo prefieres, participar en la tradicional lluvia de sobres. Cualquiera de las dos opciones será recibida con exactamente el mismo cariño, gratitud y emoción.
+
+                        </p>
+
+                        <p>
+
+                            Lo más importante para nosotros nunca será el regalo, sino la alegría de compartir contigo este momento tan especial y comenzar juntos esta nueva aventura.
+
+                        </p>
+
+                        <p>
+
+                            Gracias por acompañarnos en el inicio de esta hermosa historia.
+
+                        </p>
+
+                    </div>
+
+                    <p class={styles.closing}>
+
+                        Con mucho cariño,<br />
+                        <strong>Laura Y Harol</strong>
 
                     </p>
 
-                    <PrimaryButton>
+                    <div class={styles.divider}>
 
-                        Ver información
+                        <span class={styles.dividerSparkle}>✦</span>
 
-                    </PrimaryButton>
+                    </div>
 
-                </div>
+                   
+
+                </GlassCard>
 
             </div>
 
@@ -57,12 +255,139 @@ import PrimaryButton from "../../ui/PrimaryButton/PrimaryButton.astro";
 
 <script>
 
-    const envelope=document.getElementById("gift-envelope");
-    
-    envelope?.addEventListener("click",()=>{
-    
-        envelope.classList.toggle("open");
-    
+    const container = document.getElementById("gifts-interactive-container");
+
+    const envelopeTrigger = document.getElementById("gifts-envelope-trigger");
+
+    const letterWrapper = document.getElementById("gifts-letter-wrapper");
+
+    const continueBtn = document.getElementById("btn-continue-rsvp");
+
+    let isOpened = false;
+
+    let isAnimating = false;
+
+    letterWrapper?.addEventListener("transitionend", (e) => {
+
+        if (e.target !== letterWrapper || e.propertyName !== "max-height") return;
+
+        if (isOpened) {
+
+            letterWrapper.style.overflow = "visible";
+
+        }
+
     });
-    
-    </script>
+
+    function openSequence() {
+
+        if (isOpened || isAnimating) return;
+
+        isAnimating = true;
+
+        container?.classList.add("is-opening");
+
+        setTimeout(() => {
+
+            container?.classList.remove("is-opening");
+
+            container?.classList.add("is-open");
+
+            letterWrapper?.setAttribute("aria-hidden", "false");
+
+            isOpened = true;
+
+            isAnimating = false;
+
+            setTimeout(() => {
+
+                letterWrapper?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest"
+                });
+
+            }, 200);
+
+        }, 650);
+
+    }
+
+    function closeSequence() {
+
+        if (!isOpened || isAnimating) return;
+
+        isAnimating = true;
+
+        // Restore clipping before the collapse animation starts, otherwise
+        // the letter would stay fully visible while the wrapper shrinks.
+        if (letterWrapper) letterWrapper.style.overflow = "hidden";
+
+        // If focus is still inside the letter (e.g. on the "Continuar"
+        // button that was just clicked), move it out before hiding the
+        // wrapper with aria-hidden. Browsers block aria-hidden on an
+        // element that retains focus, which caused the console warning.
+        if (letterWrapper?.contains(document.activeElement)) {
+
+            if (document.activeElement instanceof HTMLElement) {
+
+                document.activeElement.blur();
+
+            }
+
+            envelopeTrigger?.focus();
+
+        }
+
+        container?.classList.add("is-closing");
+
+        container?.classList.remove("is-open");
+
+        letterWrapper?.setAttribute("aria-hidden", "true");
+
+        setTimeout(() => {
+
+            container?.classList.remove("is-closing");
+
+            isOpened = false;
+
+            isAnimating = false;
+
+            // Smooth scroll to RSVP after complete envelope closure
+
+            const rsvpSection = document.getElementById("rsvp");
+
+            if (rsvpSection) {
+
+                rsvpSection.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+        }, 1200);
+
+    }
+
+    envelopeTrigger?.addEventListener("click", openSequence);
+
+    envelopeTrigger?.addEventListener("keydown", (e) => {
+
+        if (e.key === "Enter" || e.key === " ") {
+
+            e.preventDefault();
+
+            openSequence();
+
+        }
+
+    });
+
+    continueBtn?.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        closeSequence();
+
+    });
+
+</script>

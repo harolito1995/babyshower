@@ -30,48 +30,53 @@ import { eventData } from "./event";
 
         </p>
 
-        <GlassCard class={styles.card} data-card>
+        <div class={styles.cardGroup}>
 
-            <div class={styles.row}>
+            <GlassCard class={styles.card} data-card>
 
-                <span class={styles.label}>Fecha</span>
+                <div class={styles.row}>
 
-                <strong>{eventData.date}</strong>
+                    <span class={styles.label}>Fecha</span>
 
-            </div>
+                    <strong>{eventData.date}</strong>
 
-            <div class={styles.row}>
+                </div>
 
-                <span class={styles.label}>Hora</span>
+                <div class={styles.row}>
 
-                <strong>{eventData.hour}</strong>
+                    <span class={styles.label}>Hora</span>
 
-            </div>
+                    <strong>{eventData.hour}</strong>
 
-            <div class={styles.row}>
+                </div>
 
-                <span class={styles.label}>Lugar</span>
+                <div class={styles.row}>
 
-                <strong>{eventData.place}</strong>
+                    <span class={styles.label}>Lugar</span>
 
-            </div>
+                    <strong>{eventData.place}</strong>
 
-            <p class={styles.address}>
+                </div>
 
-                {eventData.address}
+                <p class={styles.address}>
 
-            </p>
+                    {eventData.address}
 
-        </GlassCard>
+                </p>
 
-        <PrimaryButton
-            href={eventData.maps}
-            target="_blank"
-        >
+            </GlassCard>
 
-            Abrir ubicación
 
-        </PrimaryButton>
+
+    <PrimaryButton
+        href={eventData.maps}
+        target="_blank"
+    >
+        Abrir ubicación
+    </PrimaryButton>
+
+
+        </div>
 
     </div>
 

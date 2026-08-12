@@ -2,112 +2,526 @@
 
     position:relative;
 
-    padding:10rem 1.5rem;
+    padding-block:10rem;
+
+    padding-inline:1.5rem;
 
 }
 
 .container{
 
-    width:min(100%,720px);
+    width:min(100%,820px);
 
-    margin:auto;
+    margin-inline:auto;
 
     text-align:center;
 
 }
 
+.giftsWrapper{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+/* -------------------- */
+/* Envelope Trigger & Floating */
+/* -------------------- */
+
 .envelopeWrapper{
 
-    margin-top:5rem;
+    position:relative;
+
+    margin-top:4rem;
+
+    display:inline-flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    outline:none;
+
+    z-index:10;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+
+    transition:transform .4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    animation:floatEnvelope 4s ease-in-out infinite alternate;
+
+}
+
+.envelopeWrapper:hover,
+.envelopeWrapper:focus-visible{
+
+    transform:scale(1.08) translateY(-6px);
+
+}
+
+@keyframes floatEnvelope{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    100%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+.glowRing{
+
+    position:absolute;
+
+    width:240px;
+
+    height:240px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle, rgba(248, 200, 221, 0.4) 0%, rgba(255, 231, 184, 0.2) 55%, transparent 75%);
+
+    filter:blur(22px);
+
+    pointer-events:none;
+
+    animation:pulseGlow 3s ease-in-out infinite alternate;
+
+}
+
+@keyframes pulseGlow{
+
+    0%{
+
+        opacity:.5;
+
+        transform:scale(0.9);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:scale(1.15);
+
+    }
+
+}
+
+/* -------------------- */
+/* SVG Envelope Styling */
+/* -------------------- */
+
+.svgEnvelope{
+
+    width:280px;
+
+    height:280px;
+
+    position:relative;
+
+    z-index:5;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+
+    filter:drop-shadow(0 16px 36px rgba(0, 0, 0, 0.35));
+
+    transition:filter .4s ease;
+
+}
+
+.envelopeWrapper:hover .svgEnvelope{
+
+    filter:drop-shadow(0 22px 46px rgba(248, 200, 221, 0.5));
+
+}
+
+.svgFlap{
+
+    transform-origin:128px 62px;
+
+    transition:transform .65s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.svgMiniPaper{
+
+    transition:transform .65s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.clickHint{
+
+    margin-top:1.2rem;
+
+    font-size:.9rem;
+
+    color:#FFE4AA;
+
+    letter-spacing:.05em;
+
+    opacity:.9;
+
+    transition:opacity .4s ease, transform .4s ease;
+
+}
+
+.envelopeWrapper:hover .clickHint{
+
+    opacity:1;
+
+    transform:translateY(-2px);
+
+}
+
+/* Interactive Animation States */
+
+:global(#gifts-interactive-container.is-open) .svgFlap,
+:global(#gifts-interactive-container.is-opening) .svgFlap{
+
+    transform:rotateX(-180deg);
+
+}
+
+:global(#gifts-interactive-container.is-open) .svgMiniPaper,
+:global(#gifts-interactive-container.is-opening) .svgMiniPaper{
+
+    transform:translateY(-48px);
+
+}
+
+:global(#gifts-interactive-container.is-open) .clickHint,
+:global(#gifts-interactive-container.is-opening) .clickHint{
+
+    opacity:0;
+
+    transform:translateY(-10px);
+
+    pointer-events:none;
+
+}
+
+:global(#gifts-interactive-container.is-open) .envelopeWrapper{
+
+    animation:none;
+
+}
+
+/* -------------------- */
+/* Unfolded Letter Wrapper */
+/* -------------------- */
+
+.letterWrapper{
+
+    max-height:0;
+
+    opacity:0;
+
+    overflow:hidden;
+
+    transform:translateY(50px) scale(0.92);
+
+    transition:
+
+        max-height .9s cubic-bezier(0.16, 1, 0.3, 1),
+
+        transform .9s cubic-bezier(0.16, 1, 0.3, 1),
+
+        opacity .7s ease;
+
+    margin-inline:auto;
+
+    width:min(100%, 720px);
+
+    position:relative;
+
+    z-index:4;
+
+}
+
+:global(#gifts-interactive-container.is-open) .letterWrapper{
+
+    max-height:3000px;
+
+    opacity:1;
+
+    transform:translateY(0) scale(1);
+
+    margin-top:3rem;
+
+}
+
+:global(#gifts-interactive-container.is-closing) .letterWrapper{
+
+    max-height:0;
+
+    opacity:0;
+
+    transform:translateY(50px) scale(0.92);
+
+    transition:
+
+        max-height .7s cubic-bezier(0.7, 0, 0.84, 0),
+
+        transform .7s cubic-bezier(0.7, 0, 0.84, 0),
+
+        opacity .5s ease;
+
+}
+
+/* -------------------- */
+/* Letter Card (GlassCard override) */
+/* -------------------- */
+
+.letterCard{
+
+    padding:3.8rem 3.2rem;
+
+    color:#FFF8ED;
+
+    text-align:center;
+
+}
+
+.letterBadgeWrapper{
 
     display:flex;
 
     justify-content:center;
 
+    margin-bottom:2rem;
+
 }
 
-.envelope{
+.salutation{
+
+    font-family:"Playfair Display", serif;
+
+    font-size:1.65rem;
+
+    font-weight:700;
+
+    color:#FFF8ED;
+
+    margin-bottom:2rem;
+
+    line-height:1.4;
+
+    text-shadow:0 2px 12px rgba(12, 9, 25, 0.45);
+
+}
+
+.letterBody{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.4rem;
+
+    font-size:1.06rem;
+
+    line-height:1.95;
+
+    color:rgba(255, 248, 237, 0.86);
+
+    text-align:center;
+
+    text-shadow:0 1px 8px rgba(12, 9, 25, 0.25);
+
+}
+
+.letterBody p{
+
+    margin:0;
+
+}
+
+.closing{
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    color:#FFF8ED;
+
+    margin-top:2.5rem;
+
+    margin-bottom:0;
+
+    text-shadow:0 1px 8px rgba(12, 9, 25, 0.25);
+
+}
+
+.closing strong{
+
+    font-family:"Playfair Display", serif;
+
+    font-size:1.3rem;
+
+    color:#FFE7A8;
+
+}
+
+.divider{
 
     position:relative;
 
-    width:320px;
+    width:180px;
 
-    height:220px;
+    height:1px;
 
-    cursor:pointer;
+    margin:3rem auto 2.5rem;
 
-    perspective:1000px;
+    background:linear-gradient(90deg, transparent, rgba(255, 231, 168, 0.5), transparent);
 
-}
+    display:flex;
 
-.flap{
+    align-items:center;
 
-    position:absolute;
-
-    inset:0;
-
-    clip-path:polygon(0 0,100% 0,50% 55%);
-
-    background:#f8d7e5;
-
-    transform-origin:top;
-
-    transition:transform .8s ease;
-
-    z-index:3;
+    justify-content:center;
 
 }
 
-.letter{
+.dividerSparkle{
 
-    position:absolute;
+    color:#FFE7A8;
 
-    left:50%;
+    font-size:.8rem;
 
-    bottom:0;
+    background:transparent;
 
-    transform:translateX(-50%);
+    padding-inline:.6rem;
 
-    width:88%;
+}
 
-    padding:2rem;
+.discreetNote{
 
-    border-radius:20px;
+    font-size:.92rem;
 
-    background:white;
+    line-height:1.85;
 
-    color:#555;
+    color:rgba(255, 248, 237, 0.65);
 
-    transition:
+    max-width:520px;
 
-        transform .8s ease,
+    margin:0 auto 2.2rem;
 
-        opacity .6s ease;
+    font-style:italic;
 
-    transform:translate(-50%,60px);
+}
+
+.buttonWrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    transition:opacity .3s ease;
+
+}
+
+:global(#gifts-interactive-container.is-closing) .buttonWrapper{
 
     opacity:0;
 
 }
 
-.envelope.open .flap{
+/* -------------------- */
+/* Media Queries */
+/* -------------------- */
 
-    transform:rotateX(180deg);
+@media(max-width:768px){
+
+    .section{
+
+        padding-block:8rem;
+
+    }
+
+    .letterWrapper{
+
+        width:80%;
+
+    }
+
+    .letterCard{
+
+        padding:2.8rem 2rem;
+
+    }
+
+    .salutation{
+
+        font-size:1.4rem;
+
+    }
+
+    .letterBody{
+
+        font-size:.98rem;
+
+        gap:1.2rem;
+
+        line-height:1.85;
+
+    }
 
 }
 
-.envelope.open .letter{
+@media(max-width:480px){
 
-    transform:translate(-50%,-60px);
+    .letterWrapper{
 
-    opacity:1;
+        width:85%;
 
-}
+    }
 
-.letter p{
+    .letterCard{
 
-    line-height:1.8;
+        padding:2.2rem 1.4rem;
 
-    margin-bottom:2rem;
+    }
+
+    .svgEnvelope{
+
+        width:230px;
+
+        height:230px;
+
+    }
+
+    .salutation{
+
+        font-size:1.25rem;
+
+    }
+
+    .letterBody{
+
+        font-size:.94rem;
+
+    }
 
 }

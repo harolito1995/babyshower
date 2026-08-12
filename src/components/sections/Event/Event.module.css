@@ -42,17 +42,48 @@
 /* Card */
 /* ------------------ */
 
+.cardGroup{
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
 .card{
 
     display:flex;
 
     flex-direction:column;
 
-    gap:2rem;
+    gap:1.6rem;
 
     padding:3rem;
 
-    margin-bottom:3rem;
+
+    width:100%;
+
+    min-height:415px;
+    padding-bottom:5rem;
+
+}
+
+.buttonWrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    width:100%;
+
+    margin-top:1rem;
+
+    transform:translateY(-12px);
+
+    z-index:20;
 
 }
 
@@ -70,7 +101,7 @@
 
     gap:2rem;
 
-    padding-bottom:1.3rem;
+    padding-bottom:1rem;
 
     border-bottom:1px solid rgba(255,255,255,.08);
 
@@ -124,15 +155,17 @@
 
 .address{
 
-    margin-top:1.5rem;
+    margin-top:.5rem;
 
     color:#ECE8F8;
 
-    line-height:1.8;
+    line-height:1.7;
 
     opacity:.88;
 
     white-space:pre-line;
+
+    margin-bottom:0;
 
 }
 
