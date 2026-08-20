@@ -29,14 +29,10 @@
 
 .left {
     left: -80px;
-
     bottom: -10px;
-
     width: 430px;
-
     animation: cloudLeftFloat 18s ease-in-out infinite;
 }
-
 
 /* ============================= */
 /* Nube derecha */
@@ -44,52 +40,129 @@
 
 .right {
     right: -120px;
-
     bottom: 35px;
-
     width: 340px;
-
     animation: cloudRightFloat 24s ease-in-out infinite;
 }
-
 
 /* ============================= */
 /* Animación nube izquierda */
 /* ============================= */
 
 @keyframes cloudLeftFloat {
-
     0% {
         transform: translate3d(0, 0, 0);
     }
-
     50% {
         transform: translate3d(45px, -12px, 0);
     }
-
     100% {
         transform: translate3d(0, 0, 0);
     }
-
 }
-
 
 /* ============================= */
 /* Animación nube derecha */
 /* ============================= */
 
 @keyframes cloudRightFloat {
-
     0% {
         transform: translate3d(0, 0, 0);
     }
-
     50% {
         transform: translate3d(-55px, -8px, 0);
     }
-
     100% {
         transform: translate3d(0, 0, 0);
     }
+}
 
+/* ============================= */
+/* Responsive - Tablet */
+/* ============================= */
+
+@media (max-width: 1024px) {
+    .left {
+        width: 340px;
+        left: -60px;
+        bottom: -10px;
+    }
+    .right {
+        width: 270px;
+        right: -80px;
+        bottom: 25px;
+    }
+}
+
+/* ============================= */
+/* Responsive - Mobile Standard */
+/* ============================= */
+
+@media (max-width: 768px) {
+    .left {
+        width: clamp(200px, 46vw, 280px);
+        left: -35px;
+        bottom: -8px;
+        opacity: .80;
+        animation-name: cloudLeftFloatMobile;
+        animation-duration: 16s;
+    }
+
+    .right {
+        width: clamp(160px, 38vw, 225px);
+        right: -45px;
+        bottom: 20px;
+        opacity: .80;
+        animation-name: cloudRightFloatMobile;
+        animation-duration: 20s;
+    }
+
+    @keyframes cloudLeftFloatMobile {
+        0%, 100% {
+            transform: translate3d(0, 0, 0);
+        }
+        50% {
+            transform: translate3d(18px, -6px, 0);
+        }
+    }
+
+    @keyframes cloudRightFloatMobile {
+        0%, 100% {
+            transform: translate3d(0, 0, 0);
+        }
+        50% {
+            transform: translate3d(-20px, -5px, 0);
+        }
+    }
+}
+
+/* ============================= */
+/* Responsive - Mobile Small (320px - 480px) */
+/* ============================= */
+
+@media (max-width: 480px) {
+    .left {
+        width: clamp(160px, 44vw, 210px);
+        left: -25px;
+        bottom: -5px;
+        opacity: .76;
+    }
+
+    .right {
+        width: clamp(130px, 36vw, 175px);
+        right: -30px;
+        bottom: 15px;
+        opacity: .76;
+    }
+}
+
+@media (max-width: 360px) {
+    .left {
+        width: 150px;
+        left: -20px;
+    }
+    .right {
+        width: 120px;
+        right: -25px;
+    }
 }

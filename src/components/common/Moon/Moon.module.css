@@ -116,7 +116,9 @@
 
         width:165px;
 
-        right:3%;
+        top:75px;
+
+        right:4%;
 
     }
 
@@ -126,11 +128,19 @@
 
     .wrapper{
 
-        width:135px;
+        width:clamp(140px, 28vw, 160px);
 
-        top:45px;
+        top:clamp(40px, 7vh, 60px);
 
-        right:-10px;
+        right:clamp(12px, 3.5vw, 24px);
+
+    }
+
+    .glow{
+
+        inset:-70px;
+
+        filter:blur(55px);
 
     }
 
@@ -140,11 +150,33 @@
 
     .wrapper{
 
-        width:115px;
+        width:clamp(125px, 33vw, 145px);
 
-        top:35px;
+        top:clamp(35px, 6vh, 50px);
 
-        right:-18px;
+        right:clamp(10px, 3vw, 16px);
+
+    }
+
+    .glow{
+
+        inset:-55px;
+
+        filter:blur(45px);
+
+    }
+
+}
+
+@media(max-width:360px){
+
+    .wrapper{
+
+        width:120px;
+
+        top:30px;
+
+        right:10px;
 
     }
 

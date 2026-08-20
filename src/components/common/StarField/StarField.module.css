@@ -113,6 +113,37 @@
 
 
 /* ================================= */
+/* Responsive - Mobile */
+/* ================================= */
+
+@media (max-width: 768px) {
+
+    .star {
+
+        transform:
+            rotate(var(--rotation))
+            scale(.75);
+
+        filter:
+            drop-shadow(0 0 6px rgba(255,240,180,.4));
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .star {
+
+        transform:
+            rotate(var(--rotation))
+            scale(.68);
+
+    }
+
+}
+
+/* ================================= */
 /* Reduce Motion */
 /* ================================= */
 

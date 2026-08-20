@@ -28,13 +28,17 @@
 
     margin:2rem auto 4.5rem;
 
-    color:#F5F2FF;
+    color:#F8F5FF;
 
     line-height:1.9;
 
     font-size:1.08rem;
 
-    opacity:.90;
+    text-shadow:
+
+        0 1px 4px rgba(0,0,0,.22),
+
+        0 3px 12px rgba(0,0,0,.15);
 
 }
 
@@ -131,6 +135,8 @@
 
     font-weight:600;
 
+    text-shadow:0 1px 4px rgba(0,0,0,.30);
+
 }
 
 /* ------------------ */
@@ -147,6 +153,8 @@
 
     text-align:right;
 
+    text-shadow:0 1px 4px rgba(0,0,0,.25);
+
 }
 
 /* ------------------ */
@@ -157,11 +165,11 @@
 
     margin-top:.5rem;
 
-    color:#ECE8F8;
+    color:#F8F5FF;
 
-    line-height:1.7;
+    line-height:1.8;
 
-    opacity:.88;
+    text-shadow:0 1px 4px rgba(0,0,0,.20);
 
     white-space:pre-line;
 

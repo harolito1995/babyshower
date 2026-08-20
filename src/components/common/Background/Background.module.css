@@ -91,87 +91,37 @@
     filter: blur(80px);
   }
   
-  @keyframes auroraFloat {
-
-0% {
-    transform: translate3d(0, 0, 0) scale(1);
-    opacity: .8;
+.layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    will-change: transform;
+    contain: layout style paint;
 }
 
-.layer{
-
-position:absolute;
-
-inset:0;
-
-pointer-events:none;
-
-will-change:transform;
-
-contain:layout style paint;
-
-}
-
-50% {
-    transform: translate3d(0, -18px, 0) scale(1.025);
-    opacity: 1;
-}
-
-100% {
-    transform: translate3d(0, -30px, 0) scale(1.05);
-    opacity: .85;
-}
-
+@keyframes auroraFloat {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: .8;
+    }
+    50% {
+        transform: translate3d(0, -18px, 0) scale(1.025);
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(0, -30px, 0) scale(1.05);
+        opacity: .85;
+    }
 }
 
 .vignette {
     position: absolute;
     inset: 0;
-
     background:
         radial-gradient(
             ellipse at center,
             transparent 55%,
             rgb(0 0 0 / 0.12) 100%
         );
-
     pointer-events: none;
-}
-
-@media (max-width:768px){
-
-.moon{
-
-    transform:scale(.75);
-
-    right:-20px;
-
-    top:40px;
-
-}
-
-.castle{
-
-    transform:scale(.75);
-
-    left:-10px;
-
-}
-
-.cloudLeft{
-
-    transform:scale(.8);
-
-    left:-120px;
-
-}
-
-.cloudRight{
-
-    transform:scale(.8);
-
-    right:-100px;
-
-}
-
 }
