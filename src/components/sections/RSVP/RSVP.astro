@@ -4,16 +4,20 @@ import styles from "./RSVP.module.css";
 import Badge from "../../ui/Badge/Badge.astro";
 import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
 import PrimaryButton from "../../ui/PrimaryButton/PrimaryButton.astro";
+import GlassCard from "../../ui/GlassCard/GlassCard.astro";
+import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
 
 import { rsvpData } from "./rsvp";
 ---
 
 <section class={styles.section} id="rsvp">
 
+    <PlushDecorations section="rsvp" />
+
     <div class={styles.container}>
 
         <Badge
-            text="Solo falta un paso"
+            text={rsvpData.badge || "Solo falta un paso"}
         />
 
         <SectionTitle>
@@ -25,21 +29,118 @@ import { rsvpData } from "./rsvp";
 
         <p class={styles.description} data-description>
 
-            Nos llenaría de alegría contar contigo en el comienzo
-            de esta hermosa historia. Tu compañía hará que este día
-            sea aún más inolvidable.
+            {rsvpData.description || "Nos llenaría de alegría contar contigo en el comienzo de esta hermosa historia. Tu compañía hará que este día sea aún más inolvidable."}
 
         </p>
 
-        <PrimaryButton
-            href={`https://wa.me/${rsvpData.phone}`}
-            target="_blank"
-        >
+        <GlassCard class={styles.formCard} data-card>
 
-            Confirmar asistencia
+            <form class={styles.form} id="rsvp-form" data-phone={rsvpData.phone}>
 
-        </PrimaryButton>
+                <div class={styles.fieldGroup}>
+
+                    <label for="rsvp-name" class={styles.label}>
+
+                        Nombre completo
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="rsvp-name"
+                        name="name"
+                        class={styles.input}
+                        placeholder="Escribe tu nombre y apellido"
+                        required
+                        autocomplete="name"
+                    />
+
+                </div>
+
+                <div class={styles.fieldGroup}>
+
+                    <label for="rsvp-phone" class={styles.label}>
+
+                        Teléfono / WhatsApp
+
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="rsvp-phone"
+                        name="phone"
+                        class={styles.input}
+                        placeholder="Ej. +57 300 123 4567"
+                        required
+                        autocomplete="tel"
+                    />
+
+                </div>
+
+                <div class={styles.buttonWrapper}>
+
+                    <PrimaryButton
+                        type="submit"
+                        class={styles.submitButton}
+                    >
+
+                        Confirmar asistencia
+
+                    </PrimaryButton>
+
+                </div>
+
+                <p class={styles.feedbackMessage} id="rsvp-feedback" aria-live="polite"></p>
+
+            </form>
+
+        </GlassCard>
 
     </div>
 
 </section>
+
+<script>
+    function setupRsvpForm() {
+        const form = document.getElementById("rsvp-form") as HTMLFormElement | null;
+        if (!form) return;
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const nameInput = document.getElementById("rsvp-name") as HTMLInputElement | null;
+            const phoneInput = document.getElementById("rsvp-phone") as HTMLInputElement | null;
+            const feedback = document.getElementById("rsvp-feedback");
+            const targetPhone = form.dataset.phone || "573043327563";
+
+            const name = nameInput?.value.trim() || "";
+            const phone = phoneInput?.value.trim() || "";
+
+            if (!name || !phone) {
+                if (feedback) {
+                    feedback.textContent = "Por favor completa tu nombre y teléfono.";
+                    feedback.style.color = "#FFD1D1";
+                }
+                if (!name && nameInput) nameInput.focus();
+                else if (!phone && phoneInput) phoneInput.focus();
+                return;
+            }
+
+            if (feedback) {
+                feedback.textContent = "Abriendo WhatsApp para confirmar...";
+                feedback.style.color = "#FFF2C6";
+            }
+
+            const message = `¡Hola! Confirmo mi asistencia al Baby Shower de Mariapaz 💕\n\n*Nombre:* ${name}\n*Teléfono:* ${phone}`;
+            const url = `https://wa.me/${targetPhone}?text=${encodeURIComponent(message)}`;
+
+            window.open(url, "_blank");
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", setupRsvpForm);
+    } else {
+        setupRsvpForm();
+    }
+</script>

@@ -365,6 +365,15 @@ function initRSVP(){
 
     },"-=.3")
 
+    .from("#rsvp [data-card]",{
+
+        opacity:0,
+        y:40,
+        duration:.6,
+        ease:"power3.out"
+
+    },"-=.2")
+
     .from("#rsvp [data-button]",{
 
         opacity:0,

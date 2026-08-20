@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="title desc">
+  <title id="title">Osito Mariapaz</title>
+  <desc id="desc">Osito de peluche tierno en estilo pastel, sentado con un lazo rosa.</desc>
+  <defs>
+    <linearGradient id="fur" x1="0" y1="0" x2=".85" y2="1">
+      <stop offset="0" stop-color="#FFF3E7"/><stop offset=".55" stop-color="#F7D9C8"/><stop offset="1" stop-color="#E9BCA8"/>
+    </linearGradient>
+    <linearGradient id="furLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF9F3"/><stop offset="1" stop-color="#F4D5C5"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFD8E8"/><stop offset="1" stop-color="#F2AFCB"/>
+    </linearGradient>
+    <linearGradient id="pinkDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F5B5D0"/><stop offset="1" stop-color="#D98EAF"/>
+    </linearGradient>
+    <radialGradient id="cheek">
+      <stop offset="0" stop-color="#F2A9B8" stop-opacity=".65"/><stop offset="1" stop-color="#F2A9B8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#7C5570" flood-opacity=".22"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="256" cy="457" rx="132" ry="24" fill="#8D6A91" opacity=".16"/>
+
+  <g filter="url(#shadow)">
+    <circle cx="151" cy="128" r="57" fill="url(#fur)"/>
+    <circle cx="361" cy="128" r="57" fill="url(#fur)"/>
+    <circle cx="151" cy="128" r="31" fill="#F2C8BC"/>
+    <circle cx="361" cy="128" r="31" fill="#F2C8BC"/>
+
+    <ellipse cx="256" cy="342" rx="119" ry="126" fill="url(#fur)"/>
+    <circle cx="256" cy="218" r="132" fill="url(#furLight)"/>
+    <ellipse cx="217" cy="130" rx="48" ry="25" fill="#FFF" opacity=".34"/>
+
+    <ellipse cx="256" cy="255" rx="72" ry="56" fill="#FFF4EA"/>
+
+    <ellipse cx="211" cy="220" rx="13" ry="17" fill="#49394A"/>
+    <ellipse cx="301" cy="220" rx="13" ry="17" fill="#49394A"/>
+    <circle cx="207" cy="215" r="4.5" fill="#FFF"/>
+    <circle cx="297" cy="215" r="4.5" fill="#FFF"/>
+
+    <ellipse cx="187" cy="258" rx="31" ry="19" fill="url(#cheek)"/>
+    <ellipse cx="325" cy="258" rx="31" ry="19" fill="url(#cheek)"/>
+
+    <path d="M242 249 Q256 238 270 249 Q268 263 256 265 Q244 263 242 249Z" fill="#8B5A69"/>
+    <path d="M256 264 Q256 280 239 283 M256 264 Q256 280 273 283"
+          fill="none" stroke="#704A58" stroke-width="5" stroke-linecap="round"/>
+
+    <ellipse cx="256" cy="355" rx="72" ry="78" fill="#FFF0E5" opacity=".92"/>
+
+    <ellipse cx="150" cy="345" rx="37" ry="72" transform="rotate(25 150 345)" fill="url(#fur)"/>
+    <ellipse cx="362" cy="345" rx="37" ry="72" transform="rotate(-25 362 345)" fill="url(#fur)"/>
+
+    <ellipse cx="202" cy="430" rx="55" ry="35" fill="url(#fur)"/>
+    <ellipse cx="310" cy="430" rx="55" ry="35" fill="url(#fur)"/>
+    <ellipse cx="202" cy="430" rx="28" ry="18" fill="#E9B7AC" opacity=".7"/>
+    <ellipse cx="310" cy="430" rx="28" ry="18" fill="#E9B7AC" opacity=".7"/>
+
+    <path d="M256 311 C222 283 184 291 187 321 C190 350 226 348 256 326Z" fill="url(#pink)"/>
+    <path d="M256 311 C290 283 328 291 325 321 C322 350 286 348 256 326Z" fill="url(#pink)"/>
+    <circle cx="256" cy="319" r="20" fill="url(#pinkDark)"/>
+    <circle cx="250" cy="312" r="6" fill="#FFF" opacity=".45"/>
+
+    <path d="M112 300 C101 287 80 300 92 316 L112 335 L132 316 C144 300 123 287 112 300Z"
+          fill="#F6B6CF" opacity=".85"/>
+    <path d="M400 286 C391 276 376 286 385 298 L400 312 L415 298 C424 286 409 276 400 286Z"
+          fill="#FFE1A9" opacity=".9"/>
+  </g>
+</svg>

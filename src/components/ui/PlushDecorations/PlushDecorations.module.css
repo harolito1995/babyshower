@@ -1,0 +1,107 @@
+.plushContainer {
+    position: absolute;
+    width: var(--plush-size, 100px);
+    height: auto;
+    opacity: var(--plush-opacity, 0.9);
+    pointer-events: none;
+    user-select: none;
+    z-index: 2;
+    will-change: transform;
+    filter: drop-shadow(0 10px 22px rgba(124, 85, 112, 0.20));
+    transition: opacity 0.4s ease;
+}
+
+.plushImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* ================================= */
+/* Animaciones de Flotación Sutil */
+/* ================================= */
+
+.floatOne {
+    animation: plushFloatAnimOne 7s ease-in-out infinite alternate;
+}
+
+.floatTwo {
+    animation: plushFloatAnimTwo 8.5s ease-in-out infinite alternate;
+}
+
+@keyframes plushFloatAnimOne {
+    0% {
+        transform: translateY(0) rotate(var(--plush-rot, 0deg)) scale(1);
+    }
+    50% {
+        transform: translateY(-8px) rotate(calc(var(--plush-rot, 0deg) + 2deg)) scale(1.02);
+    }
+    100% {
+        transform: translateY(0) rotate(var(--plush-rot, 0deg)) scale(1);
+    }
+}
+
+@keyframes plushFloatAnimTwo {
+    0% {
+        transform: translateY(0) rotate(var(--plush-rot, 0deg)) scale(1);
+    }
+    50% {
+        transform: translateY(-9px) rotate(calc(var(--plush-rot, 0deg) - 2deg)) scale(1.015);
+    }
+    100% {
+        transform: translateY(0) rotate(var(--plush-rot, 0deg)) scale(1);
+    }
+}
+
+/* ================================= */
+/* Responsive - Tablet */
+/* ================================= */
+
+@media (max-width: 1024px) {
+    .plushContainer {
+        width: calc(var(--plush-size, 100px) * 0.85);
+    }
+}
+
+/* ================================= */
+/* Responsive - Mobile Standard */
+/* ================================= */
+
+@media (max-width: 768px) {
+    .plushContainer {
+        width: calc(var(--plush-size, 100px) * 0.72);
+        opacity: calc(var(--plush-opacity, 0.9) * 0.92);
+        filter: drop-shadow(0 6px 14px rgba(124, 85, 112, 0.18));
+    }
+}
+
+/* ================================= */
+/* Responsive - Mobile Small (320px - 480px) */
+/* ================================= */
+
+@media (max-width: 480px) {
+    .plushContainer {
+        width: calc(var(--plush-size, 100px) * 0.65);
+        opacity: calc(var(--plush-opacity, 0.9) * 0.88);
+    }
+}
+
+@media (max-width: 360px) {
+    .plushContainer {
+        width: calc(var(--plush-size, 100px) * 0.58);
+    }
+}
+
+/* ================================= */
+/* Accesibilidad / Reduce Motion */
+/* ================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .floatOne,
+    .floatTwo {
+        animation: none;
+        transform: rotate(var(--plush-rot, 0deg));
+    }
+}

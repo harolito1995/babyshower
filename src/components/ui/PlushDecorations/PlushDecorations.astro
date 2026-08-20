@@ -1,0 +1,123 @@
+---
+import styles from "./PlushDecorations.module.css";
+import PlushBearSvg from "../../../assets/svg/decorations/mariapaz-plush-bear.svg";
+
+export interface Props {
+    section?: "princess" | "countdown" | "event" | "dress" | "gifts" | "rsvp";
+    variant?: "bear";
+    top?: string;
+    bottom?: string;
+    left?: string;
+    right?: string;
+    size?: number;
+    rotation?: number;
+    opacity?: number;
+    floatVariant?: 1 | 2;
+    class?: string;
+}
+
+const sectionPresets: Record<string, {
+    top?: string;
+    bottom?: string;
+    left?: string;
+    right?: string;
+    size: number;
+    rotation: number;
+    opacity: number;
+    floatVariant: 1 | 2;
+}> = {
+    princess: {
+        bottom: "8%",
+        right: "5%",
+        size: 110,
+        rotation: 8,
+        opacity: 0.92,
+        floatVariant: 1,
+    },
+    countdown: {
+        top: "14%",
+        left: "5%",
+        size: 100,
+        rotation: -10,
+        opacity: 0.90,
+        floatVariant: 2,
+    },
+    event: {
+        bottom: "4%",
+        right: "5%",
+        size: 105,
+        rotation: 12,
+        opacity: 0.92,
+        floatVariant: 1,
+    },
+    dress: {
+        bottom: "12%",
+        left: "5%",
+        size: 100,
+        rotation: -8,
+        opacity: 0.90,
+        floatVariant: 2,
+    },
+    gifts: {
+        top: "18%",
+        right: "6%",
+        size: 95,
+        rotation: 6,
+        opacity: 0.88,
+        floatVariant: 1,
+    },
+    rsvp: {
+        top: "18%",
+        left: "5%",
+        size: 105,
+        rotation: -12,
+        opacity: 0.90,
+        floatVariant: 2,
+    },
+};
+
+const {
+    section,
+    variant = "bear",
+    class: className = "",
+} = Astro.props;
+
+const preset = section ? sectionPresets[section] : undefined;
+
+const top = Astro.props.top ?? preset?.top;
+const bottom = Astro.props.bottom ?? preset?.bottom;
+const left = Astro.props.left ?? preset?.left;
+const right = Astro.props.right ?? preset?.right;
+const size = Astro.props.size ?? preset?.size ?? 100;
+const rotation = Astro.props.rotation ?? preset?.rotation ?? 0;
+const opacity = Astro.props.opacity ?? preset?.opacity ?? 0.9;
+const floatVariant = Astro.props.floatVariant ?? preset?.floatVariant ?? 1;
+
+// Image source mapping for future variants
+const svgSource = variant === "bear" ? PlushBearSvg.src : PlushBearSvg.src;
+---
+
+<div
+    class={`${styles.plushContainer} ${floatVariant === 1 ? styles.floatOne : styles.floatTwo} ${className}`}
+    style={`
+        ${top ? `top: ${top};` : ""}
+        ${bottom ? `bottom: ${bottom};` : ""}
+        ${left ? `left: ${left};` : ""}
+        ${right ? `right: ${right};` : ""}
+        --plush-size: ${size}px;
+        --plush-rot: ${rotation}deg;
+        --plush-opacity: ${opacity};
+    `}
+    aria-hidden="true"
+    data-plush
+>
+    <img
+        src={svgSource}
+        alt=""
+        class={styles.plushImage}
+        draggable="false"
+        loading="lazy"
+        width={size}
+        height={size}
+    />
+</div>

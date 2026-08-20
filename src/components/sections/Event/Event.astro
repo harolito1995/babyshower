@@ -5,11 +5,14 @@ import Badge from "../../ui/Badge/Badge.astro";
 import GlassCard from "../../ui/GlassCard/GlassCard.astro";
 import PrimaryButton from "../../ui/PrimaryButton/PrimaryButton.astro";
 import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
+import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
 
 import { eventData } from "./event";
 ---
 
 <section class={styles.section} id="event">
+
+    <PlushDecorations section="event" />
 
     <div class={styles.container}>
         <Badge
