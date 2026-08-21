@@ -2,7 +2,7 @@
 
     position:relative;
 
-    overflow:visible;
+    overflow:hidden;
 
     border-radius:34px;
 
@@ -39,6 +39,8 @@
     position:absolute;
 
     inset:0;
+
+    border-radius:inherit;
 
     background:
 
