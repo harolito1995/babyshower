@@ -228,10 +228,6 @@
 
 }
 
-/* -------------------- */
-/* Unfolded Letter Wrapper */
-/* -------------------- */
-
 .letterWrapper{
 
     max-height:0;
@@ -257,6 +253,8 @@
     position:relative;
 
     z-index:4;
+
+    scroll-margin-top:1.5rem;
 
 }
 
@@ -290,9 +288,6 @@
 
 }
 
-/* -------------------- */
-/* Letter Card (GlassCard override) */
-/* -------------------- */
 
 .letterCard{
 
@@ -344,11 +339,11 @@
 
     line-height:1.95;
 
-    color:rgba(255, 248, 237, 0.86);
+    color:#FFF8ED;
 
     text-align:center;
 
-    text-shadow:0 1px 8px rgba(12, 9, 25, 0.25);
+    text-shadow:0 1px 10px rgba(12, 9, 25, 0.35);
 
 }
 
@@ -520,7 +515,9 @@
 
     .letterBody{
 
-        font-size:.94rem;
+        font-size:1rem;
+        
+        line-height:1.85;
 
     }
 

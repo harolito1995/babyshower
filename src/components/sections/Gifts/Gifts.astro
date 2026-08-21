@@ -4,7 +4,6 @@ import styles from "./Gifts.module.css";
 import Badge from "../../ui/Badge/Badge.astro";
 import GlassCard from "../../ui/GlassCard/GlassCard.astro";
 import SectionTitle from "../../ui/SectionTitle/SectionTitle.astro";
-import PrimaryButton from "../../ui/PrimaryButton/PrimaryButton.astro";
 import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
 ---
 
@@ -272,13 +271,22 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
 
     letterWrapper?.addEventListener("transitionend", (e) => {
 
-        if (e.target !== letterWrapper || e.propertyName !== "max-height") return;
+    if (e.target !== letterWrapper || e.propertyName !== "max-height") return;
 
-        if (isOpened) {
+    if (isOpened) {
 
-            letterWrapper.style.overflow = "visible";
+        letterWrapper.style.overflow = "visible";
 
-        }
+        requestAnimationFrame(() => {
+
+            letterWrapper.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        });
+
+    }
 
     });
 
@@ -301,15 +309,6 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
             isOpened = true;
 
             isAnimating = false;
-
-            setTimeout(() => {
-
-                letterWrapper?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "nearest"
-                });
-
-            }, 200);
 
         }, 650);
 
