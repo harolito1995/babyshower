@@ -205,63 +205,36 @@
 }
 
 .letterWrapper{
-
     max-height:0;
-
     opacity:0;
-
     overflow:hidden;
-
-    transform:translateY(50px) scale(0.92);
-
+    transform:translateY(24px) scale(0.96);
     transition:
-
-        max-height .9s cubic-bezier(0.16, 1, 0.3, 1),
-
-        transform .9s cubic-bezier(0.16, 1, 0.3, 1),
-
-        opacity .7s ease;
-
+        max-height .45s cubic-bezier(0.16, 1, 0.3, 1),
+        transform .45s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity .35s ease;
     margin-inline:auto;
-
     width:min(100%, 720px);
-
     position:relative;
-
     z-index:4;
-
     scroll-margin-top:1.5rem;
-
 }
 
 :global(#gifts-interactive-container.is-open) .letterWrapper{
-
-    max-height:3000px;
-
+    max-height:1600px;
     opacity:1;
-
     transform:translateY(0) scale(1);
-
-    margin-top:3rem;
-
+    margin-top:2.5rem;
 }
 
 :global(#gifts-interactive-container.is-closing) .letterWrapper{
-
     max-height:0;
-
     opacity:0;
-
-    transform:translateY(50px) scale(0.92);
-
+    transform:translateY(24px) scale(0.96);
     transition:
-
-        max-height .7s cubic-bezier(0.7, 0, 0.84, 0),
-
-        transform .7s cubic-bezier(0.7, 0, 0.84, 0),
-
-        opacity .5s ease;
-
+        max-height .4s cubic-bezier(0.7, 0, 0.84, 0),
+        transform .4s cubic-bezier(0.7, 0, 0.84, 0),
+        opacity .3s ease;
 }
 
 

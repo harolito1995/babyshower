@@ -271,8 +271,6 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
     });
 
     function openSequence() {
-        if (isAnimating) return;
-
         if (isOpened) {
             letterWrapper?.scrollIntoView({
                 behavior: "smooth",
@@ -281,27 +279,20 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
             return;
         }
 
-        isAnimating = true;
+        isOpened = true;
+
+        container?.classList.add("is-open");
+        letterWrapper?.setAttribute("aria-hidden", "false");
+        if (letterWrapper) letterWrapper.style.overflow = "visible";
 
         triggerMagicSparkles(envelopeTrigger);
 
-        container?.classList.add("is-opening");
-
-        setTimeout(() => {
-            container?.classList.remove("is-opening");
-            container?.classList.add("is-open");
-            letterWrapper?.setAttribute("aria-hidden", "false");
-            if (letterWrapper) letterWrapper.style.overflow = "visible";
-            isOpened = true;
-            isAnimating = false;
-
-            requestAnimationFrame(() => {
-                letterWrapper?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
+        requestAnimationFrame(() => {
+            letterWrapper?.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
             });
-        }, 220);
+        });
     }
 
     function closeSequence() {
