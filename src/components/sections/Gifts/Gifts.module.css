@@ -31,40 +31,31 @@
 }
 
 .envelopeWrapper{
-
     position:relative;
-
     margin-top:4rem;
-
     display:inline-flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
-
     cursor:pointer;
-
     outline:none;
-
     z-index:10;
-
     opacity:1 !important;
-
     visibility:visible !important;
-
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+    user-select:none;
     transition:transform .4s cubic-bezier(0.34, 1.56, 0.64, 1);
-
     animation:floatEnvelope 4s ease-in-out infinite alternate;
-
 }
 
 .envelopeWrapper:hover,
 .envelopeWrapper:focus-visible{
-
     transform:scale(1.08) translateY(-6px);
+}
 
+.envelopeWrapper:active{
+    transform:scale(0.98) translateY(-2px);
 }
 
 @keyframes floatEnvelope{
@@ -150,17 +141,12 @@
 }
 
 .svgFlap{
-
     transform-origin:128px 62px;
-
-    transition:transform .65s cubic-bezier(0.4, 0, 0.2, 1);
-
+    transition:transform .42s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .svgMiniPaper{
-
-    transition:transform .65s cubic-bezier(0.4, 0, 0.2, 1);
-
+    transition:transform .42s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clickHint{

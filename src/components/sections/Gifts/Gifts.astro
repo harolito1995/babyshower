@@ -264,29 +264,22 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
     let isAnimating = false;
 
     letterWrapper?.addEventListener("transitionend", (e) => {
-
-    if (e.target !== letterWrapper || e.propertyName !== "max-height") return;
-
-    if (isOpened) {
-
-        letterWrapper.style.overflow = "visible";
-
-        requestAnimationFrame(() => {
-
-            letterWrapper.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        });
-
-    }
-
+        if (e.target !== letterWrapper || e.propertyName !== "max-height") return;
+        if (isOpened) {
+            letterWrapper.style.overflow = "visible";
+        }
     });
 
     function openSequence() {
+        if (isAnimating) return;
 
-        if (isOpened || isAnimating) return;
+        if (isOpened) {
+            letterWrapper?.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+            return;
+        }
 
         isAnimating = true;
 
@@ -295,19 +288,20 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
         container?.classList.add("is-opening");
 
         setTimeout(() => {
-
             container?.classList.remove("is-opening");
-
             container?.classList.add("is-open");
-
             letterWrapper?.setAttribute("aria-hidden", "false");
-
+            if (letterWrapper) letterWrapper.style.overflow = "visible";
             isOpened = true;
-
             isAnimating = false;
 
-        }, 650);
-
+            requestAnimationFrame(() => {
+                letterWrapper?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            });
+        }, 220);
     }
 
     function closeSequence() {
