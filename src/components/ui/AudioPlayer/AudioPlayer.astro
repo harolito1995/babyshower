@@ -11,11 +11,9 @@ import styles from "./AudioPlayer.module.css";
     title="Reproducir música mágica"
 >
     <div class={styles.icon} id="audio-player-icon">
-        <!-- Iconic YouTube Play Triangle -->
         <svg class={styles.playIcon} viewBox="0 0 24 24" aria-hidden="true">
             <path d="M8 5v14l11-7z" fill="currentColor" />
         </svg>
-        <!-- Pause Icon when playing -->
         <svg class={styles.pauseIcon} viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" fill="currentColor" />
         </svg>
@@ -25,24 +23,23 @@ import styles from "./AudioPlayer.module.css";
 <script>
     let isPlaying = false;
     let audioContext: AudioContext | null = null;
+    let masterGain: GainNode | null = null;
     let melodyTimer: number | null = null;
-    let audioElement: HTMLAudioElement | null = null;
 
     const button = document.getElementById("audio-player-toggle");
 
-    // Frequencies (Hz)
+    // Musical Frequencies (Hz)
     const G3 = 196.00, C4 = 261.63, D4 = 293.66, E4 = 329.63, F4 = 349.23, FS4 = 369.99, G4 = 392.00;
     const A4 = 440.00, B4 = 493.88, C5 = 523.25, D5 = 587.33, E5 = 659.25, F5 = 698.46, G5 = 783.99;
 
-    // Brahms' Lullaby (Wiegenlied / Canción de cuna) - Melody & Harmony pairs [melodyFreq, bassFreq, durationBeats]
     interface NoteStep {
         m: number;
         b?: number;
         d: number;
     }
 
+    // Brahms' Lullaby (Canción de cuna / Wiegenlied)
     const brahmLullaby: NoteStep[] = [
-        // Phrase 1: Guten Abend, gut' Nacht...
         { m: G4, b: C4, d: 1 },
         { m: G4, d: 1 },
         { m: B4, b: E4, d: 2 },
@@ -56,7 +53,6 @@ import styles from "./AudioPlayer.module.css";
         { m: B4, d: 1 },
         { m: A4, b: D4, d: 2 },
 
-        // Phrase 2: mit Rosen bedacht...
         { m: FS4, d: 1 },
         { m: G4, d: 1 },
         { m: A4, b: D4, d: 2 },
@@ -69,7 +65,6 @@ import styles from "./AudioPlayer.module.css";
         { m: A4, d: 1 },
         { m: G4, b: G3, d: 2.5 },
 
-        // Phrase 3: Morgen früh, wenn Gott will...
         { m: D4, b: G3, d: 1 },
         { m: D5, b: B4, d: 2 },
         { m: B4, d: 1 },
@@ -79,7 +74,6 @@ import styles from "./AudioPlayer.module.css";
         { m: A4, d: 0.5 },
         { m: D4, b: D4, d: 2 },
 
-        // Phrase 4: wirst du wieder geweckt...
         { m: D4, d: 1 },
         { m: D5, b: FS4, d: 2 },
         { m: C5, d: 1 },
@@ -91,49 +85,56 @@ import styles from "./AudioPlayer.module.css";
     ];
 
     let currentStep = 0;
-    const beatUnitMs = 380;
+    const beatUnitMs = 400;
+
+    function getAudioContext(): AudioContext {
+        if (!audioContext) {
+            const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+            audioContext = new AudioCtx();
+            masterGain = audioContext.createGain();
+            masterGain.gain.setValueAtTime(0.42, audioContext.currentTime);
+            masterGain.connect(audioContext.destination);
+        }
+        return audioContext;
+    }
 
     function playBellChime(ctx: AudioContext, freq: number, isBass = false) {
-        if (!isPlaying || ctx.state === "suspended") return;
+        if (!isPlaying) return;
 
         const now = ctx.currentTime;
-
-        // Fundamental tone
         const osc1 = ctx.createOscillator();
-        const gain1 = ctx.createGain();
-
-        // Crystalline overtone (gives the Swiss music box celesta bell sparkle)
         const osc2 = ctx.createOscillator();
-        const gain2 = ctx.createGain();
+        const noteGain = ctx.createGain();
 
+        // Sine wave for pure pitch
         osc1.type = "sine";
         osc1.frequency.setValueAtTime(freq, now);
 
-        osc2.type = "sine";
-        osc2.frequency.setValueAtTime(freq * 2.02, now);
+        // Triangle wave for warm music box tine resonance
+        osc2.type = "triangle";
+        osc2.frequency.setValueAtTime(freq * 2, now);
 
-        const volume = isBass ? 0.03 : 0.055;
-        const decayTime = isBass ? 1.6 : 1.2;
+        const volume = isBass ? 0.28 : 0.45;
+        const decayTime = isBass ? 1.6 : 1.25;
 
-        gain1.gain.setValueAtTime(0, now);
-        gain1.gain.linearRampToValueAtTime(volume, now + 0.012);
-        gain1.gain.exponentialRampToValueAtTime(0.0001, now + decayTime);
+        noteGain.gain.setValueAtTime(0.0001, now);
+        noteGain.gain.linearRampToValueAtTime(volume, now + 0.015);
+        noteGain.gain.exponentialRampToValueAtTime(0.0001, now + decayTime);
 
-        gain2.gain.setValueAtTime(0, now);
-        gain2.gain.linearRampToValueAtTime(volume * 0.28, now + 0.008);
-        gain2.gain.exponentialRampToValueAtTime(0.0001, now + (decayTime * 0.7));
+        osc1.connect(noteGain);
+        osc2.connect(noteGain);
 
-        osc1.connect(gain1);
-        osc2.connect(gain2);
-
-        gain1.connect(ctx.destination);
-        gain2.connect(ctx.destination);
+        if (masterGain) {
+            noteGain.connect(masterGain);
+        } else {
+            noteGain.connect(ctx.destination);
+        }
 
         osc1.start(now);
-        osc1.stop(now + decayTime + 0.1);
+        osc1.stop(now + decayTime + 0.05);
 
         osc2.start(now);
-        osc2.stop(now + (decayTime * 0.7) + 0.1);
+        osc2.stop(now + decayTime + 0.05);
     }
 
     function scheduleNextNote(ctx: AudioContext) {
@@ -144,7 +145,7 @@ import styles from "./AudioPlayer.module.css";
         // Play melody note
         playBellChime(ctx, step.m, false);
 
-        // Play harmonic bass accompaniment if present
+        // Play harmonic accompaniment
         if (step.b) {
             playBellChime(ctx, step.b, true);
         }
@@ -158,13 +159,13 @@ import styles from "./AudioPlayer.module.css";
         }, durationMs);
     }
 
-    function startLullabyMelody(ctx: AudioContext) {
+    function startLullaby(ctx: AudioContext) {
         if (melodyTimer) clearTimeout(melodyTimer);
         currentStep = 0;
         scheduleNextNote(ctx);
     }
 
-    function stopLullabyMelody() {
+    function stopLullaby() {
         if (melodyTimer) {
             clearTimeout(melodyTimer);
             melodyTimer = null;
@@ -172,47 +173,30 @@ import styles from "./AudioPlayer.module.css";
     }
 
     async function toggleAudio() {
+        const ctx = getAudioContext();
+
+        // Essential for iOS Safari / Android: resume synchronously within direct user interaction
+        if (ctx.state === "suspended") {
+            await ctx.resume();
+        }
+
+        // Silent unlock burst to ensure hardware audio pipeline is active on mobile
+        try {
+            const unlockBuf = ctx.createBuffer(1, 1, 22050);
+            const unlockSrc = ctx.createBufferSource();
+            unlockSrc.buffer = unlockBuf;
+            unlockSrc.connect(ctx.destination);
+            unlockSrc.start(0);
+        } catch (_) {}
+
         if (!isPlaying) {
-            try {
-                if (!audioElement) {
-                    audioElement = new Audio("/audio/soundtrack.mp3");
-                    audioElement.loop = true;
-                    audioElement.volume = 0.35;
-                }
-
-                const playPromise = audioElement.play();
-                if (playPromise !== undefined) {
-                    await playPromise;
-                }
-                isPlaying = true;
-            } catch {
-                if (!audioContext) {
-                    const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-                    audioContext = new AudioCtx();
-                }
-
-                if (audioContext.state === "suspended") {
-                    await audioContext.resume();
-                }
-
-                isPlaying = true;
-                startLullabyMelody(audioContext);
-            }
-
+            isPlaying = true;
             button?.setAttribute("aria-pressed", "true");
+            startLullaby(ctx);
         } else {
             isPlaying = false;
-
-            if (audioElement && !audioElement.paused) {
-                audioElement.pause();
-            }
-
-            if (audioContext && audioContext.state === "running") {
-                audioContext.suspend();
-            }
-
-            stopLullabyMelody();
             button?.setAttribute("aria-pressed", "false");
+            stopLullaby();
         }
     }
 
