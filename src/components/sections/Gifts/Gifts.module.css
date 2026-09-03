@@ -205,14 +205,13 @@
 }
 
 .letterWrapper{
-    max-height:0;
+    height:0;
     opacity:0;
     overflow:hidden;
-    transform:translateY(24px) scale(0.96);
-    transition:
-        max-height .45s cubic-bezier(0.16, 1, 0.3, 1),
-        transform .45s cubic-bezier(0.16, 1, 0.3, 1),
-        opacity .35s ease;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(16px);
+    transition:opacity .28s ease, transform .28s cubic-bezier(0.16, 1, 0.3, 1), visibility .28s;
     margin-inline:auto;
     width:min(100%, 720px);
     position:relative;
@@ -221,20 +220,23 @@
 }
 
 :global(#gifts-interactive-container.is-open) .letterWrapper{
-    max-height:1600px;
+    height:auto;
     opacity:1;
-    transform:translateY(0) scale(1);
+    overflow:visible;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateY(0);
     margin-top:2.5rem;
 }
 
 :global(#gifts-interactive-container.is-closing) .letterWrapper{
-    max-height:0;
+    height:0;
     opacity:0;
-    transform:translateY(24px) scale(0.96);
-    transition:
-        max-height .4s cubic-bezier(0.7, 0, 0.84, 0),
-        transform .4s cubic-bezier(0.7, 0, 0.84, 0),
-        opacity .3s ease;
+    overflow:hidden;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(16px);
+    transition:opacity .25s ease, transform .25s ease, visibility .25s;
 }
 
 

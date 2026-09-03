@@ -249,8 +249,6 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
 
 <script>
 
-    import { triggerMagicSparkles } from "../../../lib/sparkles";
-
     const container = document.getElementById("gifts-interactive-container");
 
     const envelopeTrigger = document.getElementById("gifts-envelope-trigger");
@@ -262,13 +260,6 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
     let isOpened = false;
 
     let isAnimating = false;
-
-    letterWrapper?.addEventListener("transitionend", (e) => {
-        if (e.target !== letterWrapper || e.propertyName !== "max-height") return;
-        if (isOpened) {
-            letterWrapper.style.overflow = "visible";
-        }
-    });
 
     function openSequence() {
         if (isOpened) {
@@ -283,9 +274,6 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
 
         container?.classList.add("is-open");
         letterWrapper?.setAttribute("aria-hidden", "false");
-        if (letterWrapper) letterWrapper.style.overflow = "visible";
-
-        triggerMagicSparkles(envelopeTrigger);
 
         requestAnimationFrame(() => {
             letterWrapper?.scrollIntoView({
