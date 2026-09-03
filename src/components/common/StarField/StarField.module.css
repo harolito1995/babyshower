@@ -40,119 +40,58 @@
 }
 
 
-/* ================================= */
-/* Estrellas ambientales */
-/* ================================= */
-
 .ambientStar {
-
     filter:
         drop-shadow(0 0 5px rgba(255,240,190,.28));
-
 }
-
-
-/* ================================= */
-/* Twinkle */
-/* ================================= */
 
 @keyframes twinkle {
-
     0% {
-
         opacity: .35;
-
         scale: .85;
-
     }
-
     50% {
-
         opacity: 1;
-
         scale: 1.08;
-
     }
-
     100% {
-
         opacity: .35;
-
         scale: .85;
-
     }
-
 }
-
-
-/* ================================= */
-/* Flotación */
-/* ================================= */
 
 @keyframes floatStar{
-
     0%{
-
         translate:0 0;
-
     }
-
     50%{
-
         translate:0 calc(var(--offset) * -1);
-
     }
-
     100%{
-
         translate:0 0;
-
     }
-
 }
 
-
-/* ================================= */
-/* Responsive - Mobile */
-/* ================================= */
-
 @media (max-width: 768px) {
-
     .star {
-
         transform:
             rotate(var(--rotation))
             scale(.75);
-
         filter:
             drop-shadow(0 0 6px rgba(255,240,180,.4));
-
     }
-
 }
 
 @media (max-width: 480px) {
-
     .star {
-
         transform:
             rotate(var(--rotation))
             scale(.68);
-
     }
-
 }
 
-/* ================================= */
-/* Reduce Motion */
-/* ================================= */
-
 @media (prefers-reduced-motion: reduce) {
-
     .star {
-
         animation: none;
-
     }
-
 }

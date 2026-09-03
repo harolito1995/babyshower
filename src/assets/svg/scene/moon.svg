@@ -46,8 +46,6 @@ flood-opacity=".45"/>
 
 </defs>
 
-<!-- Halo -->
-
 <circle
 
 cx="256"
@@ -57,8 +55,6 @@ cy="256"
 r="210"
 
 fill="url(#halo)"/>
-
-<!-- Luna -->
 
 <g filter="url(#shadow)">
 
@@ -71,8 +67,6 @@ cy="256"
 r="140"
 
 fill="url(#moon)"/>
-
-<!-- Cráteres -->
 
 <circle
 cx="212"
@@ -108,8 +102,6 @@ cy="338"
 r="8"
 fill="#F8E7C4"
 opacity=".45"/>
-
-<!-- Brillo -->
 
 <ellipse
 

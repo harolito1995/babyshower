@@ -101,6 +101,8 @@ import { rsvpData } from "./rsvp";
 </section>
 
 <script>
+    import { triggerMagicSparkles } from "../../../lib/sparkles";
+
     function setupRsvpForm() {
         const form = document.getElementById("rsvp-form") as HTMLFormElement | null;
         if (!form) return;
@@ -125,6 +127,8 @@ import { rsvpData } from "./rsvp";
                 else if (!phone && phoneInput) phoneInput.focus();
                 return;
             }
+
+            triggerMagicSparkles(form);
 
             if (feedback) {
                 feedback.textContent = "Abriendo WhatsApp para confirmar...";

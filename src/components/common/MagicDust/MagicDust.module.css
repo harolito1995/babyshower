@@ -13,26 +13,14 @@
 }
 
 
-/* ================================= */
-/* Luz principal */
-/* ================================= */
-
 .dust::before {
-
     content: "";
-
     position: absolute;
-
     width: 900px;
-
     height: 900px;
-
     left: -260px;
-
     top: -260px;
-
     border-radius: 50%;
-
     background:
         radial-gradient(
             circle,
@@ -41,34 +29,18 @@
             rgba(255,205,235,.10) 40%,
             rgba(255,255,255,0) 75%
         );
-
     filter: blur(140px);
-
     animation: dustFloatOne 18s ease-in-out infinite alternate;
-
 }
 
-
-/* ================================= */
-/* Luz secundaria */
-/* ================================= */
-
 .dust::after {
-
     content: "";
-
     position: absolute;
-
     width: 700px;
-
     height: 700px;
-
     right: -180px;
-
     bottom: -220px;
-
     border-radius: 50%;
-
     background:
         radial-gradient(
             circle,
@@ -76,75 +48,37 @@
             rgba(255,220,180,.08) 30%,
             rgba(255,255,255,0) 75%
         );
-
     filter: blur(130px);
-
     animation: dustFloatTwo 24s ease-in-out infinite alternate;
-
 }
-
-
-/* ================================= */
-/* Partículas */
-/* ================================= */
 
 .particle{
-
     position:absolute;
-
     width:4px;
-
     height:4px;
-
     border-radius:50%;
-
     background:radial-gradient(
-
         circle,
-
         #FFFDF6 0%,
-
         #FFEAB5 55%,
-
         rgba(255,255,255,0) 100%
-
     );
-
     box-shadow:
-
         0 0 10px rgba(255,236,180,.55),
-
         0 0 24px rgba(255,220,180,.25);
-
     opacity:.18;
-
     will-change:
-
         transform,
-
         opacity,
-
         filter;
-
 }
 
-
-/* ================================= */
-/* Posiciones */
-/* ================================= */
-
 .particle1{
-
     left:18%;
-
     top:24%;
-
     animation:
-
         particleFloat1 8s ease-in-out infinite,
-
         particlePulse 5s ease-in-out infinite;
-
 }
 
 .particle2 {
@@ -213,10 +147,6 @@
 }
 
 
-/* ================================= */
-/* Movimiento de luces */
-/* ================================= */
-
 @keyframes dustFloatOne {
 
     from {
@@ -250,10 +180,6 @@
 
 }
 
-
-/* ================================= */
-/* Movimiento partículas */
-/* ================================= */
 
 @keyframes particleFloat1 {
 
@@ -409,9 +335,29 @@
 }
 
 
-/* ================================= */
-/* Reduce Motion */
-/* ================================= */
+@media (max-width: 768px) {
+    .dust::before {
+        width: 440px;
+        height: 440px;
+        left: -120px;
+        top: -120px;
+        filter: blur(65px);
+        animation-duration: 24s;
+    }
+
+    .dust::after {
+        width: 380px;
+        height: 380px;
+        right: -90px;
+        bottom: -110px;
+        filter: blur(60px);
+        animation-duration: 30s;
+    }
+
+    .particle {
+        box-shadow: 0 0 6px rgba(255, 236, 180, 0.45);
+    }
+}
 
 @media (prefers-reduced-motion: reduce) {
 

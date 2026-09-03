@@ -24,10 +24,8 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
 
         </SectionTitle>
 
-        <!-- Interactive Wrapper Container -->
         <div class={styles.giftsWrapper} id="gifts-interactive-container">
 
-            <!-- Definitive SVG Envelope Container (Always visible centerpiece) -->
             <div
                 class={styles.envelopeWrapper}
                 data-envelope
@@ -94,7 +92,6 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
 
                     <g>
 
-                        <!-- Inner wall / back of envelope -->
                         <rect
                             x="44"
                             y="62"
@@ -104,7 +101,6 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
                             fill="#EAD9C8"
                         />
 
-                        <!-- Mini paper sheet inside pocket -->
                         <rect
                             id="gifts-svg-paper-sheet"
                             class={styles.svgMiniPaper}
@@ -116,13 +112,11 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
                             fill="url(#gifts-paper-grad)"
                         />
 
-                        <!-- Envelope front pocket -->
                         <path
                             d="M44 62 L128 132 L212 62 V182 H44 Z"
                             fill="url(#gifts-front-grad)"
                         />
 
-                        <!-- Front fold shadow line -->
                         <path
                             d="M44 62 L128 138 L212 62"
                             stroke="#E5A6C4"
@@ -131,7 +125,6 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
                             stroke-linejoin="round"
                         />
 
-                        <!-- Top flap + wax seal -->
                         <g id="gifts-svg-flap" class={styles.svgFlap}>
 
                             <path
@@ -169,7 +162,6 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
 
             </div>
 
-            <!-- Physical Parchment Unfolded Letter -->
             <div
                 class={styles.letterWrapper}
                 id="gifts-letter-wrapper"
@@ -257,6 +249,8 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
 
 <script>
 
+    import { triggerMagicSparkles } from "../../../lib/sparkles";
+
     const container = document.getElementById("gifts-interactive-container");
 
     const envelopeTrigger = document.getElementById("gifts-envelope-trigger");
@@ -296,6 +290,8 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
 
         isAnimating = true;
 
+        triggerMagicSparkles(envelopeTrigger);
+
         container?.classList.add("is-opening");
 
         setTimeout(() => {
@@ -320,14 +316,8 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
 
         isAnimating = true;
 
-        // Restore clipping before the collapse animation starts, otherwise
-        // the letter would stay fully visible while the wrapper shrinks.
         if (letterWrapper) letterWrapper.style.overflow = "hidden";
 
-        // If focus is still inside the letter (e.g. on the "Continuar"
-        // button that was just clicked), move it out before hiding the
-        // wrapper with aria-hidden. Browsers block aria-hidden on an
-        // element that retains focus, which caused the console warning.
         if (letterWrapper?.contains(document.activeElement)) {
 
             if (document.activeElement instanceof HTMLElement) {
@@ -353,8 +343,6 @@ import PlushDecorations from "../../ui/PlushDecorations/PlushDecorations.astro";
             isOpened = false;
 
             isAnimating = false;
-
-            // Smooth scroll to RSVP after complete envelope closure
 
             const rsvpSection = document.getElementById("rsvp");
 

@@ -19,10 +19,6 @@
     user-select: none;
 }
 
-/* ================================= */
-/* Animaciones de Flotación Sutil */
-/* ================================= */
-
 .floatOne {
     animation: plushFloatAnimOne 7s ease-in-out infinite alternate;
 }
@@ -55,19 +51,11 @@
     }
 }
 
-/* ================================= */
-/* Responsive - Tablet */
-/* ================================= */
-
 @media (max-width: 1024px) {
     .plushContainer {
         width: calc(var(--plush-size, 100px) * 0.85);
     }
 }
-
-/* ================================= */
-/* Responsive - Mobile Standard */
-/* ================================= */
 
 @media (max-width: 768px) {
     .plushContainer {
@@ -76,10 +64,6 @@
         filter: drop-shadow(0 6px 14px rgba(124, 85, 112, 0.18));
     }
 }
-
-/* ================================= */
-/* Responsive - Mobile Small (320px - 480px) */
-/* ================================= */
 
 @media (max-width: 480px) {
     .plushContainer {
@@ -93,10 +77,6 @@
         width: calc(var(--plush-size, 100px) * 0.58);
     }
 }
-
-/* ================================= */
-/* Accesibilidad / Reduce Motion */
-/* ================================= */
 
 @media (prefers-reduced-motion: reduce) {
     .floatOne,

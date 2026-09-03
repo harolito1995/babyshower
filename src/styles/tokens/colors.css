@@ -1,30 +1,20 @@
-/* ==========================================================================
-   PROJECT MARIAPAZ
-   Color Tokens
-   ========================================================================== */
-
-   :root {
-    /* Backgrounds */
+:root {
     --color-midnight: #1d2748;
     --color-night: #2b3765;
     --color-surface: #36457d;
   
-    /* Text */
     --color-text: #fffdf8;
     --color-text-soft: #e8e6df;
     --color-text-muted: #b9bfd3;
   
-    /* Brand */
     --color-rose: #f4b8d5;
     --color-lavender: #ddceff;
     --color-gold: #f2d27b;
   
-    /* Decorative */
     --color-cloud: #f7f4ff;
     --color-star: #fff8dc;
     --color-shadow: rgb(0 0 0 / 0.25);
   
-    /* Gradients */
     --gradient-sky:
       linear-gradient(
         180deg,

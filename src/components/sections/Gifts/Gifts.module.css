@@ -30,10 +30,6 @@
 
 }
 
-/* -------------------- */
-/* Envelope Trigger & Floating */
-/* -------------------- */
-
 .envelopeWrapper{
 
     position:relative;
@@ -127,10 +123,6 @@
 
 }
 
-/* -------------------- */
-/* SVG Envelope Styling */
-/* -------------------- */
-
 .svgEnvelope{
 
     width:280px;
@@ -194,8 +186,6 @@
     transform:translateY(-2px);
 
 }
-
-/* Interactive Animation States */
 
 :global(#gifts-interactive-container.is-open) .svgFlap,
 :global(#gifts-interactive-container.is-opening) .svgFlap{
@@ -442,10 +432,6 @@
     opacity:0;
 
 }
-
-/* -------------------- */
-/* Media Queries */
-/* -------------------- */
 
 @media(max-width:768px){
 

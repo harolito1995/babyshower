@@ -24,12 +24,6 @@ const mainStars = [
   { x: 74, y: 62, s: 20, o: 0.9, d: 6, r: -8 },
 ];
 
-/*
- * Estrellas ambientales.
- *
- * Utilizamos una fórmula determinista para que
- * las posiciones sean siempre las mismas.
- */
 const ambientStars = Array.from({ length: 45 }, (_, index) => {
   const seed = index + 1;
 
@@ -59,8 +53,6 @@ const ambientStars = Array.from({ length: 45 }, (_, index) => {
 ---
 
 <div class={styles.field} aria-hidden="true">
-  <!-- Estrellas principales -->
-
   {
     mainStars.map((star) => (
       <img
@@ -84,8 +76,6 @@ const ambientStars = Array.from({ length: 45 }, (_, index) => {
       />
     ))
   }
-
-  <!-- Estrellas ambientales -->
 
   {
     ambientStars.map((star) => (

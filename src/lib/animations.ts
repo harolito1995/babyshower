@@ -1,10 +1,37 @@
 import { gsap } from "gsap";
 import SplitType from "split-type";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "@studio-freight/lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
+let lenisInstance: Lenis | null = null;
+
+function initSmoothScroll() {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const isMobileOrTouch = window.innerWidth <= 768 || ("ontouchstart" in window && window.innerWidth < 1024);
+    if (isMobileOrTouch) return;
+
+    lenisInstance = new Lenis({
+        duration: 1.15,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true
+    });
+
+    lenisInstance.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+        lenisInstance?.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+}
+
 export function initAnimations(){
+
+    initSmoothScroll();
 
     initHero();
 
